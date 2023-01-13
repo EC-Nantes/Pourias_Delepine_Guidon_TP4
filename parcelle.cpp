@@ -8,22 +8,22 @@ parcelle::parcelle(int num, string prop, Polygone<int,float> forme){
 }*/
 
 int parcelle::getNumero(){
-
+    return this->numero;
 }
 
 string parcelle::getProprietaire( ){
-
+    return this->proprietaire;
 }
 
 float parcelle::getSurface( ){
-
+    return this->surface;
 }
 
 Polygone<int,float> parcelle::getForme( ){
-
+    return this->forme;
 }
 string parcelle::getType( ){
-
+    return this->type;
 }
 void parcelle::setNumero(int n){
 
