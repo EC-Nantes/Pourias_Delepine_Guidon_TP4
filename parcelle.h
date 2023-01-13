@@ -34,11 +34,6 @@ parcelle<T>::parcelle(int num, string prop, Polygone<T> forme){
     this->setNumero(num);
     this->setProprietaire(prop);
 }
-/*
-template<typename T>
-parcelle<T>::parcelle(parcelle parc){
-}
-*/
 
 template<typename T>
 int parcelle<T>::getNumero(){
@@ -51,7 +46,28 @@ string parcelle<T>::getProprietaire( ){
 }
 
 template<typename T>
-float parcelle<T>::getSurface( ){
+float parcelle<T>::getSurface(){
+
+    vector<point2D<int>>::iterator it;
+
+    int x = 0;
+    int y = 0;
+    int x_plus_1 = 0;
+    int y_plus_1 = 0;
+
+    float result_somme = 0;
+    
+    
+    for (int i=0;i< this->forme.getSommets().size()-1;i++){
+        x = this->forme.getSommets()[i].getX();
+        y = this->forme.getSommets()[i].getY();
+        x_plus_1 = this->forme.getSommets()[i+1].getX();
+        y_plus_1 = this->forme.getSommets()[i+1].getY();
+
+        result_somme += (x*y_plus_1 - x_plus_1*y); 
+    }
+    this->surface = 0.5*(result_somme);
+
     return this->surface;
 }
 
@@ -88,11 +104,11 @@ void parcelle<T>::setType(string type){
 template<typename T>
 inline ostream& operator<<(ostream& s, parcelle<T> p)
 {
-	s << "Parcelle n° : " << p.getNumero << endl;
-    s << "  Type : " << p.getType << endl;
-    s << "  Polygone : " << p.getForme << endl;
-    s << "  Proprietaire : " << p.getProprietaire << endl;
-    s << "  Surface : " << p.getSurface << endl;
+	s << "Parcelle n° : " << p.getNumero() << endl;
+    s << "  Type : " << p.getType() << endl;
+    s << "  Polygone : " << p.getForme() << endl;
+    s << "  Proprietaire : " << p.getProprietaire() << endl;
+    s << "  Surface : " << p.getSurface() << endl;
     //constructible
     //surface construite
     //surface a construire restante
