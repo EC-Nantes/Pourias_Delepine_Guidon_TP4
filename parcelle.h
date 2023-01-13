@@ -26,3 +26,4 @@ class parcelle{
         void setType(string type);
 
 };
+
