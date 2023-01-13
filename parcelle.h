@@ -15,7 +15,7 @@ class parcelle{
 
     public:
         parcelle(int num, string prop, Polygone<vector<point2D<T>>> forme);
-        parcelle(parcelle parc);
+        //parcelle(parcelle parc);
         int getNumero();
         string getProprietaire( );
         float getSurface( );
