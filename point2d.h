@@ -17,8 +17,8 @@ public:
   // constructeurs
   point2D();
   point2D(T x, T y);
-  point2D(point2D const &pt);
-  // point2D (Point2D<T> p);
+  point2D (point2D<T> &p);
+  
 
   // accesseurs en lecture
   T getX();
@@ -47,10 +47,10 @@ template <typename T> inline point2D<T>::point2D(T x, T y) {
   this->y = y;
 }
 
-template <typename T> inline point2D<T>::point2D(point2D const &pt) {
-  // this = pt;
-  this->x = pt.x;
-  this->y = pt.y;
+template <typename T> inline point2D<T>::point2D (point2D<T> &p)
+{
+  this->x = p.x;
+  this->y = p.y;
 }
 
 template <typename T> inline void point2D<T>::translate(T a, T b) {
@@ -83,8 +83,8 @@ inline void point2D<T>::setY(T b)
 }
 
 template<typename T>
-inline ostream& operator<<(ostream& s, point2D<T> pt)
+inline ostream& operator<<(ostream& s, point2D<T> p)
 {
-	s << "x = " << pt.getX() << " y = " << pt.getY();
+	s << "x = " << p.getX() << " y = " << p.getY();
 	return s;
 }
