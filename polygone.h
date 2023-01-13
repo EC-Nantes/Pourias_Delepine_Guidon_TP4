@@ -57,5 +57,6 @@ void Polygone<T>::addPoint(point2D<T>){
 }
 template<typename T>
 void Polygone<T>::translate(T x,T y){
-    
+
 }
+/* FIN DU DOCUMENT*/
