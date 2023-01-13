@@ -10,26 +10,26 @@ class parcelle{
         int numero;
         string proprietaire;
         float surface;
-        Polygone<vector<point2D<int>>> forme;
+        Polygone<T> forme;
         int pConstructible;
 
     public:
-        parcelle(int num, string prop, Polygone<vector<point2D<T>>> forme);
+        parcelle(int num, string prop, Polygone<T> forme);
         //parcelle(parcelle parc);
         int getNumero();
         string getProprietaire( );
         float getSurface( );
-        Polygone<vector<point2D<T>>> getForme( );
+        Polygone<T> getForme( );
         string getType( ); 
         void setNumero(int n);
         void setProprietaire(string prop );
-        void setForme(Polygone<vector<point2D<T>>> forme);
+        void setForme(Polygone<T> forme);
         void setType(string type);
 
 };
 
 template<typename T>
-parcelle<T>::parcelle(int num, string prop, Polygone<vector<point2D<T>>> forme){
+parcelle<T>::parcelle(int num, string prop, Polygone<T> forme){
 
 }
 /*
@@ -54,7 +54,7 @@ float parcelle<T>::getSurface( ){
 }
 
 template<typename T>
-Polygone<vector<point2D<T>>> parcelle<T>::getForme( ){
+Polygone<T> parcelle<T>::getForme( ){
     return this->forme;
 }
 
@@ -74,7 +74,7 @@ void parcelle<T>::setProprietaire(string prop ){
 }
 
 template<typename T>
-void parcelle<T>::setForme(Polygone<vector<point2D<T>>> forme){
+void parcelle<T>::setForme(Polygone<T> forme){
     this->forme = forme;
 }
 
