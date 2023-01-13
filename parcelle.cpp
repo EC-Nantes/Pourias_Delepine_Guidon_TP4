@@ -1,40 +1,39 @@
 #include "parcelle.h"
 
-Parcelle::Parcelle(int num, string prop, Polygone<int,float> forme){
+parcelle::parcelle(int num, string prop, Polygone<int,float> forme){
+
+}
+/*parcelle::parcelle(parcelle parc){
+
+}*/
+
+int parcelle::getNumero(){
 
 }
 
-Parcelle::Parcelle(Parcelle parc){
+string parcelle::getProprietaire( ){
 
 }
 
-int Parcelle::getNumero(){
+float parcelle::getSurface( ){
 
 }
 
-string Parcelle::getPropriétaire( ){
+Polygone<int,float> parcelle::getForme( ){
 
 }
-
-float Parcelle::getSurface( ){
-
-}
-
-Polygone<int,float> Parcelle::getForme( ){
+string parcelle::getType( ){
 
 }
-string Parcelle::getType( ){
+void parcelle::setNumero(int n){
 
 }
-void Parcelle::setNumero(int n){
+void parcelle::setProprietaire(string prop ){
 
 }
-void Parcelle::setPropriétaire(string prop ){
+void parcelle::setForme(Polygone<int,float> forme){
 
 }
-void Parcelle::setForme(Polygone<int,float> forme){
-
-}
-void Parcelle::setType(string type){
+void parcelle::setType(string type){
     
 }

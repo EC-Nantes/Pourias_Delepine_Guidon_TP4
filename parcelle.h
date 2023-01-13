@@ -13,15 +13,15 @@ class parcelle{
         int pConstructible;
 
     public:
-        Parcelle(int num, string prop, Polygone<int,float> forme);
-        Parcelle(Parcelle parc);
+        parcelle(int num, string prop, Polygone<int,float> forme);
+        //parcelle(parcelle parc);
         int getNumero();
-        string getPropriétaire( );
+        string getProprietaire( );
         float getSurface( );
         Polygone<int,float> getForme( );
         string getType( ); 
         void setNumero(int n);
-        void setPropriétaire(string prop );
+        void setProprietaire(string prop );
         void setForme(Polygone<int,float> forme);
         void setType(string type);
 

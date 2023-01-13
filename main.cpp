@@ -7,6 +7,7 @@
 int main(int argc, char const *argv[])
 {
     std::cout << "hello world"<< std::endl;
-    point2D(6, 7);
+    point2D<int> pt(6, 7);
+    //Polygone<point2D<int>> pol(pt);
     return 0;
 }
