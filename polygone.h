@@ -7,57 +7,62 @@
 
 using namespace std;
 
-template<typename T,typename S>
+template<typename T>
 
 class Polygone {
 
     private:
-        T x;
+        vector<point2D<T>> v_sommets;
 
     public:
         Polygone();
-        //Polygone(T num,S surface);
         Polygone(vector<point2D<T>> listeSommets);
-        //Polygone(Polygone<T> poly);
+        //Polygone(Polygone<T,S> poly);
 
         vector<point2D<T>> getSommets();
 
-        void setSommets(vector<point2D<T>>);
+        void setSommets(vector<point2D<T>> listeSommets);
 
-        void addPoint(point2D<T>);
+        void addPoint(point2D<T> pt);
         void translate(T x,T y);
 
 };
 
-template<typename T,typename S>
-Polygone<T,S>::Polygone(){
+template<typename T>
+Polygone<T>::Polygone(){
 
+    point2D<int> pt_init();
+    this->v_sommets.push_back(pt_init);
 }
 
-template<typename T,typename S>
-Polygone<T,S>::Polygone(vector<point2D<T>> listeSommets){
-
+template<typename T>
+Polygone<T>::Polygone(vector<point2D<T>> listeSommets){
+    for(vector<point2D<T>>::iterator it = listeSommets.begin(); it != listeSommets.end(); it++){
+        cout << "POINT VECTEUR" << *it << endl;
+    }
+    
 }
 /*
-template<typename T>
-Polygone<T>::Polygone(Polygone<T> poly){
+template<typename T,typename S>
+Polygone<T,S>::Polygone(Polygone<T,S> poly){
 
 }
 */
-template<typename T,typename S>
-vector<point2D<T>> Polygone<T,S>::getSommets(){
+template<typename T>
+vector<point2D<T>> Polygone<T>::getSommets(){
+    
+}
+template<typename T>
+void Polygone<T>::setSommets(vector<point2D<T>> listeSommets){
 
 }
-template<typename T,typename S>
-void Polygone<T,S>::setSommets(vector<point2D<T>>){
+template<typename T>
+void Polygone<T>::addPoint(point2D<T> pt){
+    this->v_sommets.push_back(pt);
 
 }
-template<typename T,typename S>
-void Polygone<T,S>::addPoint(point2D<T>){
-
-}
-template<typename T,typename S>
-void Polygone<T,S>::translate(T x,T y){
+template<typename T>
+void Polygone<T>::translate(T x,T y){
 
 }
 /* FIN DU DOCUMENT*/
