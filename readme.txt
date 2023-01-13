@@ -1,6 +1,6 @@
 lancer le code :
 g++ *.cpp -o f
-./f expression-2-parametres.txt
+./f
 
 recuperer depot distant :
 git pull
