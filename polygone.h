@@ -37,8 +37,8 @@ Polygone<T>::Polygone(){
 
 template<typename T>
 Polygone<T>::Polygone(vector<point2D<T>> listeSommets){
-    for(vector<point2D<T>>::iterator it = listeSommets.begin(); it != listeSommets.end(); it++){
-        cout << "POINT VECTEUR" << *it << endl;
+    for (T v : listeSommets){
+        cout << v << endl;
     }
     
 }
