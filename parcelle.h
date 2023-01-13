@@ -30,7 +30,9 @@ class parcelle{
 
 template<typename T>
 parcelle<T>::parcelle(int num, string prop, Polygone<T> forme){
-
+    this->setForme(forme);
+    this->setNumero(num);
+    this->setProprietaire(prop);
 }
 /*
 template<typename T>
@@ -65,7 +67,7 @@ string parcelle<T>::getType( ){
 
 template<typename T>
 void parcelle<T>::setNumero(int n){
-
+    this->numero = n;
 }
 
 template<typename T>
@@ -80,5 +82,20 @@ void parcelle<T>::setForme(Polygone<T> forme){
 
 template<typename T>
 void parcelle<T>::setType(string type){
-    
+    this->type = type;
+}
+
+template<typename T>
+inline ostream& operator<<(ostream& s, parcelle<T> p)
+{
+	s << "Parcelle n° : " << p.getNumero << endl;
+    s << "  Type : " << p.getType << endl;
+    s << "  Polygone : " << p.getForme << endl;
+    s << "  Proprietaire : " << p.getProprietaire << endl;
+    s << "  Surface : " << p.getSurface << endl;
+    //constructible
+    //surface construite
+    //surface a construire restante
+
+	return s;
 }
