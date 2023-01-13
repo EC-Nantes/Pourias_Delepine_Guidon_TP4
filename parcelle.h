@@ -84,3 +84,18 @@ template<typename T>
 void parcelle<T>::setType(string type){
     this->type = type;
 }
+
+template<typename T>
+inline ostream& operator<<(ostream& s, parcelle<T> p)
+{
+	s << "Parcelle n° : " << p.getNumero << endl;
+    s << "  Type : " << p.getType << endl;
+    s << "  Polygone : " << p.getForme << endl;
+    s << "  Proprietaire : " << p.getProprietaire << endl;
+    s << "  Surface : " << p.getSurface << endl;
+    //constructible
+    //surface construite
+    //surface a construire restante
+
+	return s;
+}
