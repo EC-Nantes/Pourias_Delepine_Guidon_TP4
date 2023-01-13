@@ -77,7 +77,7 @@ template<typename T>
 inline ostream& operator<<(ostream& s, Polygone<T> p)
 {
     for (int i=0;i< p.getSommets().size();i++){
-        s << "Point "<<i<< " : "<< p.getSommets()[i] << "\n";
+        s << "Point "<<i<< " : "<< p.getSommets()[i];
     }
     /*for (point2D<T> v : p.getSommets()){
         s << "polygone => " << v << "\n";
