@@ -2,6 +2,8 @@ lancer le code :
 g++ *.cpp -o f
 ./f
 
+g++ *.cpp -o f && ./f
+
 recuperer depot distant :
 git pull
 faire une fusion

@@ -17,7 +17,6 @@ class Polygone {
     public:
         Polygone();
         Polygone(vector<point2D<T>> listeSommets);
-        //Polygone(Polygone<T,S> poly);
 
         vector<point2D<T>> getSommets();
 
@@ -37,9 +36,11 @@ Polygone<T>::Polygone(){
 
 template<typename T>
 Polygone<T>::Polygone(vector<point2D<T>> listeSommets){
-    for (T v : listeSommets){
-        this->v_sommets = v;
-    }
+
+   // for (int i=0;i< listeSommets.size();i++){
+    //for (vector<point2D<T>> v : listeSommets){
+        this->v_sommets = listeSommets;
+   // }
 }
 /*
 template<typename T,typename S>
@@ -49,12 +50,8 @@ Polygone<T,S>::Polygone(Polygone<T,S> poly){
 */
 template<typename T>
 vector<point2D<T>> Polygone<T>::getSommets(){
-    vector<point2D<T>> get_sommets;
 
-    for (T v : this->v_sommets){
-        get_sommets = v;
-    }
-    return get_sommets;
+    return this->v_sommets;
 }
 
 template<typename T>
@@ -71,8 +68,21 @@ void Polygone<T>::addPoint(point2D<T> pt){
 template<typename T>
 void Polygone<T>::translate(T x,T y){
 
-    for (T v : this->v_sommets){
+    for (point2D<T> v : this->v_sommets){
         v.translate(x,y);
     }
 }
+
+template<typename T>
+inline ostream& operator<<(ostream& s, Polygone<T> p)
+{
+    for (int i=0;i< p.getSommets().size();i++){
+        s << "Point "<<i<< " : "<< p.getSommets()[i] << "\n";
+    }
+    /*for (point2D<T> v : p.getSommets()){
+        s << "polygone => " << v << "\n";
+    }*/
+	return s;
+}
+
 /* FIN DU DOCUMENT*/
