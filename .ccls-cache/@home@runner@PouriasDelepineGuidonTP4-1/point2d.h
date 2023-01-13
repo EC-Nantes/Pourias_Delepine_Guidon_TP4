@@ -17,7 +17,7 @@ public:
   // constructeurs
   point2D();
   point2D(T x, T y);
-  point2D(point2D const &pt2D);
+  point2D(point2D const &pt);
   // point2D (Point2D<T> p);
 
   // accesseurs en lecture
@@ -85,6 +85,6 @@ inline void point2D<T>::setY(T b)
 template<typename T>
 inline ostream& operator<<(ostream& s, point2D<T> pt)
 {
-	s << "x = " << pt2D.getX() << " y = " << pt2D.getY();
+	s << "x = " << pt.getX() << " y = " << pt.getY();
 	return s;
 }
