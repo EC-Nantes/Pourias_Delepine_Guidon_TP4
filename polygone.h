@@ -13,6 +13,7 @@ class Polygone {
         Polygone();
         Polygone(Vector<Point2D<T>< listeSommets);
         Polygone(Polygone<T> poly);
-        
+        Vector<Point2D<T>> getSommets()
+        setSommets(Vector<Point2D<T>):void
 
 };
