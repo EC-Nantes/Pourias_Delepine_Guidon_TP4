@@ -38,7 +38,7 @@ Polygone<T>::Polygone(){
 template<typename T>
 Polygone<T>::Polygone(vector<point2D<T>> listeSommets){
     for (T v : listeSommets){
-        cout << v << endl;
+        this->v_sommets = v;
     }
     
 }
