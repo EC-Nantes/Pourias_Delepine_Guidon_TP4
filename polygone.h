@@ -7,7 +7,7 @@
 
 using namespace std;
 
-template<typename T>
+template<typename T,typename S>
 
 class Polygone {
 
@@ -16,6 +16,7 @@ class Polygone {
 
     public:
         Polygone();
+        //Polygone(T num,S surface);
         Polygone(vector<point2D<T>> listeSommets);
         //Polygone(Polygone<T> poly);
 
@@ -28,13 +29,13 @@ class Polygone {
 
 };
 
-template<typename T>
-Polygone<T>::Polygone(){
+template<typename T,typename S>
+Polygone<T,S>::Polygone(){
 
 }
 
-template<typename T>
-Polygone<T>::Polygone(vector<point2D<T>> listeSommets){
+template<typename T,typename S>
+Polygone<T,S>::Polygone(vector<point2D<T>> listeSommets){
 
 }
 /*
@@ -43,20 +44,20 @@ Polygone<T>::Polygone(Polygone<T> poly){
 
 }
 */
-template<typename T>
-vector<point2D<T>> Polygone<T>::getSommets(){
+template<typename T,typename S>
+vector<point2D<T>> Polygone<T,S>::getSommets(){
 
 }
-template<typename T>
-void Polygone<T>::setSommets(vector<point2D<T>>){
+template<typename T,typename S>
+void Polygone<T,S>::setSommets(vector<point2D<T>>){
 
 }
-template<typename T>
-void Polygone<T>::addPoint(point2D<T>){
+template<typename T,typename S>
+void Polygone<T,S>::addPoint(point2D<T>){
 
 }
-template<typename T>
-void Polygone<T>::translate(T x,T y){
+template<typename T,typename S>
+void Polygone<T,S>::translate(T x,T y){
 
 }
 /* FIN DU DOCUMENT*/
