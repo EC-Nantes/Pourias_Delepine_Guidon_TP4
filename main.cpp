@@ -8,6 +8,9 @@ int main(int argc, char const *argv[])
 {
     std::cout << "hello world"<< std::endl;
     point2D<int> pt(6, 7);
-    //Polygone<point2D<int>> pol(pt);
+    int num = 1;
+    float surface = 0.5;
+    //Polygone<int, float> pol(num, surface);
+    //parcelle parc(1, "owner", pol);
     return 0;
 }
