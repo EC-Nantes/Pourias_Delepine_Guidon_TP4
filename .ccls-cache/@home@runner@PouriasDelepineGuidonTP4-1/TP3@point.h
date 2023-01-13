@@ -17,7 +17,7 @@ public :
 	point();
 	point(T x, T y);
 	void translater(T a, T b);
-	point(point const & pt);
+	point(point const & p);
 	T getX();
 	T getY();
 	void setX(T a);
@@ -50,11 +50,11 @@ inline void point<T>::translater(T a, T b)
 }
 
 template<typename T>
-inline point<T>::point(point const & pt)
+inline point<T>::point(point const & p)
 {
 	//this = pt;
-	this->x = pt.x;
-	this->y = pt.y;
+	this->x = p.x;
+	this->y = p.y;
 }
 
 template<typename T>
@@ -82,8 +82,8 @@ inline void point<T>::setY(T b)
 }
 
 template<typename T>
-inline ostream& operator<<(ostream& s, point<T> pt)
+inline ostream& operator<<(ostream& s, point<T> p)
 {
-	s << "x = " << pt.getX() << " y = " << pt.getY();
+	s << "x = " << p.getX() << " y = " << p.getY();
 	return s;
 }
