@@ -4,14 +4,21 @@
 #include "polygone.h"
 #include "parcelle.h"
 
+using namespace std;
+
 int main(int argc, char const *argv[])
 {
-    std::cout << "hello world"<< std::endl;
+    cout << "hello world"<< endl;
     point2D<int> pt(6, 7);
 
     Polygone<int> pol;
     pol.addPoint(pt);
 
     parcelle<int> parc(1, "owner", pol);
+
+    for (point2D<int> v : pol.getSommets()){
+        cout << "SOMMETS : "<< v << endl;;
+    }
+
     return 0;
 }

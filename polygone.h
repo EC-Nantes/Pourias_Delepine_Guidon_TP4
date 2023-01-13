@@ -55,8 +55,6 @@ vector<point2D<T>> Polygone<T>::getSommets(){
         get_sommets = v;
     }
     return get_sommets;
-    
-    
 }
 
 template<typename T>
@@ -76,6 +74,5 @@ void Polygone<T>::translate(T x,T y){
     for (T v : this->v_sommets){
         v.translate(x,y);
     }
-
 }
 /* FIN DU DOCUMENT*/
