@@ -40,7 +40,6 @@ Polygone<T>::Polygone(vector<point2D<T>> listeSommets){
     for (T v : listeSommets){
         this->v_sommets = v;
     }
-    
 }
 /*
 template<typename T,typename S>
@@ -50,19 +49,33 @@ Polygone<T,S>::Polygone(Polygone<T,S> poly){
 */
 template<typename T>
 vector<point2D<T>> Polygone<T>::getSommets(){
+    vector<point2D<T>> get_sommets;
+
+    for (T v : this->v_sommets){
+        get_sommets = v;
+    }
+    return get_sommets;
+    
     
 }
+
 template<typename T>
 void Polygone<T>::setSommets(vector<point2D<T>> listeSommets){
-
+    this->v_sommets = listeSommets;
 }
+
 template<typename T>
 void Polygone<T>::addPoint(point2D<T> pt){
     this->v_sommets.push_back(pt);
 
 }
+
 template<typename T>
 void Polygone<T>::translate(T x,T y){
+
+    for (T v : this->v_sommets){
+        v.translate(x,y);
+    }
 
 }
 /* FIN DU DOCUMENT*/
