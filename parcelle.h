@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 #include "polygone.h"
 using namespace std;
