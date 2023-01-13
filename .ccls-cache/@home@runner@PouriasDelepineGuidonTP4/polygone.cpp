@@ -1,1 +1,0 @@
-#include "polygone.h"
