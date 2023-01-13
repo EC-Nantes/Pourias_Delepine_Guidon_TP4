@@ -31,7 +31,7 @@ class Polygone {
 template<typename T>
 Polygone<T>::Polygone(){
 
-    point2D<int> pt_init();
+    point2D<int> pt_init;
     this->v_sommets.push_back(pt_init);
 }
 
