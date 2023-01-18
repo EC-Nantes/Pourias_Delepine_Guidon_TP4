@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "polygone.h"
+
 using namespace std;
 
 template<typename T>
@@ -25,7 +26,6 @@ class parcelle{
         void setProprietaire(string prop );
         void setForme(Polygone<T> forme);
         void setType(string type);
-
 };
 
 template<typename T>

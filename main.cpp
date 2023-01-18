@@ -3,7 +3,7 @@
 #include "point2d.h"
 #include "polygone.h"
 #include "parcelle.h"
-
+#include "carte.h"
 
 using namespace std;
 
@@ -24,9 +24,6 @@ int main()
     v_point.push_back(pt3);
     v_point.push_back(pt1);
     
-
-   
-    
     Polygone<int> pol(v_point); 
 
     cout << "Polygone : \n" << pol << endl;
@@ -38,6 +35,12 @@ int main()
     cout << "Parcelle proprietaire : " << parcelle_1.getProprietaire() << endl;
     cout << "Parcelle surface : " << parcelle_1.getSurface() << " m^2"<<endl;
     cout << "Parcelle Type : " << parcelle_1.getType() << endl;
+
+    cout << endl;
+    Carte<int> carte;
+    carte.loadCarte("Parcelles.txt");
+    carte.afficher();
+
 
     return 0;
 }
