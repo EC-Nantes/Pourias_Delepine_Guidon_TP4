@@ -39,5 +39,7 @@ int main()
     cout << "Parcelle surface : " << parcelle_1.getSurface() << " m^2"<<endl;
     cout << "Parcelle Type : " << parcelle_1.getType() << endl;
 
+    /* FIN DU MAIN */
+
     return 0;
 }
