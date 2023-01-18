@@ -4,7 +4,8 @@
 #include "polygone.h"
 #include "ZN.h"
 #include "ZA.h"
-
+#include "ZAU.h"
+#include "ZU.h"
 
 using namespace std;
 
@@ -37,6 +38,8 @@ int main()
 
     ZN<int> zn1(1,"propre ZN 1",pol);
     ZA<int> za1(2,"propre ZA 1",pol,"cailloux");
+    ZAU<int> zau1(3,"propre ZAU 1",pol,10);
+    ZU<int> zu1(4,"propre ZU 1",pol,50,10);
 
     string valid_ZA = "TU PEUX PAS";
     if(za1.surface_peut_constuctible_mais_pas_trop(110) == true) valid_ZA = "TU PEUX";
@@ -46,6 +49,8 @@ int main()
     cout << za1 <<endl;
     cout <<"PEUT CONSTRUIRE : " << valid_ZA << endl;
     cout << zn1 <<endl;
+    cout << zau1 <<endl;
+   // cout << zu1 <<endl;
 /*
     cout << "Parcelle numero : " << parcelle_1.getNumero() << endl;
     cout << "Parcelle forme : \n" << parcelle_1.getForme() << endl;
