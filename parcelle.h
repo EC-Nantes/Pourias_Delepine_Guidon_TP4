@@ -64,7 +64,17 @@ float parcelle<T>::getSurface(){
         x_plus_1 = this->forme.getSommets()[i+1].getX();
         y_plus_1 = this->forme.getSommets()[i+1].getY();
 
-        result_somme += (x*y_plus_1 - x_plus_1*y); 
+        printf("\nx = %d\n",x);
+        printf("y = %d\n",y);
+        printf("x+1 = %d\n",x_plus_1);
+        printf("y+1 = %d\n",y_plus_1);
+
+        result_somme += (x_plus_1*y - x*y_plus_1); 
+
+        printf("sum = %f\n",result_somme);
+
+
+        //printf(result_somme);
     }
     this->surface = 0.5*(result_somme);
 

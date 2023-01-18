@@ -2,7 +2,7 @@
 #include <iostream>
 #include "point2d.h"
 #include "polygone.h"
-#include "parcelle.h"
+#include "constructible.h"
 
 
 using namespace std;
@@ -14,15 +14,19 @@ int main()
 
     vector<point2D<int>> v_point;
 
-    point2D<int> pt0 (1, 1);
-    point2D<int> pt1 (1, 3);
-    point2D<int> pt2 (3, 1);
-    point2D<int> pt3 (3, 3);
+    point2D<int> pt0 (0, 0);
+    point2D<int> pt1 (0, 1);
+    point2D<int> pt3 (1, 0);
+    point2D<int> pt2 (1, 1);
+    
+    
+    point2D<int> pt0_fin (0, 0);
 
     v_point.push_back(pt0); //sens trigonometrique pour la formule de surface
+    v_point.push_back(pt1);
     v_point.push_back(pt2);
     v_point.push_back(pt3);
-    v_point.push_back(pt1);
+    v_point.push_back(pt0_fin);
     
 
    
@@ -38,6 +42,8 @@ int main()
     cout << "Parcelle proprietaire : " << parcelle_1.getProprietaire() << endl;
     cout << "Parcelle surface : " << parcelle_1.getSurface() << " m^2"<<endl;
     cout << "Parcelle Type : " << parcelle_1.getType() << endl;
+
+    /* FIN DU MAIN */
 
     return 0;
 }
