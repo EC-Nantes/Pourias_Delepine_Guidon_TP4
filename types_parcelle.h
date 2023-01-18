@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <vector>
-#include "parcelle.h"
+#include "constructible.h"
 
 
 using namespace std;
@@ -28,16 +28,6 @@ class ZAU : virtual public constructible <T>
   public:
   int  surfaceConstructible;
 };
-
-
-template<typename T>
-class ZA : virtual public constructible <T>
-{
-  protected:
-
-  public:
-};
-
 
 template<typename T>
 class ZN : virtual public constructible <T>
