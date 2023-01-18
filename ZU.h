@@ -8,7 +8,7 @@ using namespace std;
 
 
 template<typename T>
-class ZU : virtual public parcelle <T>
+class ZU : virtual public parcelle <T> //FAIRE HERITAGE CONSTRUCTIBLE !
 //virtual public constructible <T>
 {
   protected:
@@ -16,10 +16,10 @@ class ZU : virtual public parcelle <T>
   int surface_construite;
 
   public:
-  ZU(int num, string prop, Polygone<T> forme, int surface_construite, int pourcent_surface_constructible);
+  ZU(int num, string prop, Polygone<T> forme, int pourcent_surface_constructible, int surface_construite);
   int  surfaceConstructible();
   int getSurfaceConstruite() {return this->surface_construite;};
-  int getEspaceConstructible() {return this->pourcent_surface_constructible;};
+  int get_pourcent_surface_constructible() {return this->pourcent_surface_constructible;};
 };
 
 
@@ -45,7 +45,6 @@ inline ostream& operator<<(ostream& s, ZU<T> z)
   s << "Type : " << z.getType() << endl;
   s << "Polygone : " << z.getForme() << endl;
   s << "Proprietaire : " << z.getProprietaire() << endl;
-  s << "% constructible : " << z.getEspaceConstructible() << "%"<< endl;
   s << "Surface construite : " << z.getSurfaceConstruite() << endl;
   s << "Surface à construire restante : " << z.surfaceConstructible()  << endl;
   s << "% Constructible :" << z.get_pourcent_surface_constructible() << endl;
