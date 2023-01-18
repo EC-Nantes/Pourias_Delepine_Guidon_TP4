@@ -36,7 +36,7 @@ int main()
     parcelle<int> parcelle_1(1,"Par_A",pol);
 
     ZN<int> zn1(1,"propre ZN 1",pol);
-    ZA<int> za1(1,"propre ZA 1",pol,"cailloux");
+    ZA<int> za1(2,"propre ZA 1",pol,"cailloux");
 
     string valid_ZA = "TU PEUX PAS";
     if(za1.surface_peut_constuctible_mais_pas_trop(110) == true) valid_ZA = "TU PEUX";

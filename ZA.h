@@ -9,14 +9,14 @@ using namespace std;
 
 
 template<typename T>
-class ZA : virtual public parcelle<T> //virtual public ZN <T>
+class ZA : virtual public constructible<T>, virtual public parcelle<T> //virtual public ZN <T>
 {
   protected:
   string type_culture;
 
   public:
     ZA(int num, string prop, Polygone<T> forme, string type_culture);
-    string get_type_culture() {return this->type_culture;};
+    string getTypeCulture() {return this->type_culture;};
 
 
     bool surface_peut_constuctible_mais_pas_trop(int surface_veut_construire);
@@ -50,5 +50,6 @@ inline ostream& operator<<(ostream& s, ZA<T> z)
   s << "Polygone : " << z.getForme() << endl;
   s << "Proprietaire : " << z.getProprietaire() << endl;
   s << "Surface : " << z.getSurface() << endl;
+   s << "Type Culture : " << z.getTypeCulture() << endl;
 	return s;
 }

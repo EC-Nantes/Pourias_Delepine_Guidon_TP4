@@ -36,6 +36,6 @@ inline ostream& operator<<(ostream& s, ZAU<T> z)
   s << "Polygone : " << z.getForme() << endl;
   s << "Proprietaire : " << z.getProprietaire() << endl;
   s << "Surface : " << z.getSurface() << endl;
-  s << "Type Culture : " << z.getTypeCulture() << endl;
+ 
 	return s;
 }
