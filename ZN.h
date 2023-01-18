@@ -8,7 +8,7 @@ using namespace std;
 
 
 template<typename T>
-class ZN : virtual public constructible <T>, virtual public parcelle <T>
+class ZN : virtual public constructible<T>, virtual public parcelle<T>
 {
   protected:
 
@@ -17,8 +17,10 @@ class ZN : virtual public constructible <T>, virtual public parcelle <T>
 };
 
 template<typename T>
-ZN<T>::ZN(int num, string prop, Polygone<T> forme){
-    this -> setType("ZN");
+ZN<T>::ZN(int num, string prop, Polygone<T> forme): parcelle<T>(num, prop,forme){
+  this->setType("ZN");
+  this->setProprietaire(prop);
+  this->setForme(forme);
 }
 
 template<typename T>

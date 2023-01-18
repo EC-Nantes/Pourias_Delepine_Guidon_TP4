@@ -14,6 +14,7 @@ class parcelle{
         int pConstructible;
 
     public:
+        //parcelle();
         parcelle(int num, string prop, Polygone<T> forme);
         //parcelle(parcelle parc);
         int getNumero();
@@ -34,7 +35,13 @@ parcelle<T>::parcelle(int num, string prop, Polygone<T> forme){
     this->setNumero(num);
     this->setProprietaire(prop);
 }
-
+/*
+template<typename T>
+parcelle<T>::parcelle(){
+    this->setNumero(0);
+    this->setProprietaire("P1");
+}
+*/
 template<typename T>
 int parcelle<T>::getNumero(){
     return this->numero;

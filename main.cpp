@@ -2,7 +2,8 @@
 #include <iostream>
 #include "point2d.h"
 #include "polygone.h"
-#include "types_parcelle.h"
+#include "ZN.h"
+#include "ZA.h"
 
 
 using namespace std;
@@ -15,9 +16,9 @@ int main()
     vector<point2D<int>> v_point;
 
     point2D<int> pt0 (0, 0);
-    point2D<int> pt1 (0, 1);
-    point2D<int> pt3 (1, 0);
-    point2D<int> pt2 (1, 1);
+    point2D<int> pt1 (0, 30);
+    point2D<int> pt3 (30, 0);
+    point2D<int> pt2 (30, 30);
     
     
     point2D<int> pt0_fin (0, 0);
@@ -28,21 +29,30 @@ int main()
     v_point.push_back(pt3);
     v_point.push_back(pt0_fin);
     
-
-   
-    
     Polygone<int> pol(v_point); 
 
-    cout << "Polygone : \n" << pol << endl;
+   // cout << "Polygone : \n" << pol << endl;
 
     parcelle<int> parcelle_1(1,"Par_A",pol);
 
+    ZN<int> zn1(1,"propre ZN 1",pol);
+    ZA<int> za1(1,"propre ZA 1",pol,"cailloux");
+
+    string valid_ZA = "TU PEUX PAS";
+    if(za1.surface_peut_constuctible_mais_pas_trop(110) == true) valid_ZA = "TU PEUX";
+
+
+
+    cout << za1 <<endl;
+    cout <<"PEUT CONSTRUIRE : " << valid_ZA << endl;
+    cout << zn1 <<endl;
+/*
     cout << "Parcelle numero : " << parcelle_1.getNumero() << endl;
     cout << "Parcelle forme : \n" << parcelle_1.getForme() << endl;
     cout << "Parcelle proprietaire : " << parcelle_1.getProprietaire() << endl;
     cout << "Parcelle surface : " << parcelle_1.getSurface() << " m^2"<<endl;
     cout << "Parcelle Type : " << parcelle_1.getType() << endl;
-
+*/
     /* FIN DU MAIN */
 
     return 0;
