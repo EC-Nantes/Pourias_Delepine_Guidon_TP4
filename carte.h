@@ -87,25 +87,34 @@ template<typename T> vector<parcelle<T>> Carte<T>::loadCarte(string carteToLoad)
     i = 0;
     while(i < vecteurData.size()){
         cout << "type : " << vecteurData[i] << endl;
+        string type = vecteurData[i];
         i++;
+
         cout << "surface : " << vecteurData[i] << endl; // a convertir en int ? peut etre laisser en string
+        string surface = vecteurData[i];
         i++;
+
         cout << "nom : " << vecteurData[i] << endl;
+        string nom = vecteurData[i];
         i++;
+
         cout << "culture : " << vecteurData[i] << endl;
+        string culture = vecteurData[i];
         i++;
+
+
         bool run = true;
+        vector<point2D<int>> v_point;
         while(run){
             if(i < vecteurData.size()){
                 if(vecteurData[i][0] == '['){
                     // CREATION DES POINTS
                     // todo
-                    /*
-                    point2D<int> pt3 (3, 3);
-                    x et y a identifier dans la string
-                    peut etre utiliser la fonction findPoint
-                    v_point.push_back(pt0); 
-                    */
+                    
+                    point2D<int> pt = findPoint(vecteurData[i]);
+                    
+                    v_point.push_back(pt); 
+                    
                     cout << "point : " << vecteurData[i] << endl;
                     i++;
                 }else{
@@ -118,30 +127,45 @@ template<typename T> vector<parcelle<T>> Carte<T>::loadCarte(string carteToLoad)
             
         }
         // CREATION DU POLYGONE A PARTIR DU VECTEUR AVEC LES POINTS
-        // todo
-        // Polygone<int> pol(v_point); 
-
+        Polygone<int> pol(v_point); 
 
         // CREATION DES PARCELLES
-        // todo
-        // parcelle<int> parcelle_1(1,"Par_A",pol);
-        //this->vectorParcelle.push_back();
+        //numero de parcelle a ajouter et adapter au création spécifique des classes filles
+        if(type == "ZA"){
+            //ZA<int> parcZA(surface, nom, pol, culture);
+            //parcToAdd.push_back(parcZA);
+        }else if(type == "ZAU"){
+            //ZAU<int> parcZAU(surface, nom, pol, culture);
+            //parcToAdd.push_back(parcZAU);
+        }else if(type == "ZU"){
+            //ZU<int> parcZU(surface, nom, pol, culture);
+            //parcToAdd.push_back(parcZU);
+        }else if(type == "ZN"){
+            //ZN<int> parcZN(surface, nom, pol, culture);
+            //parcToAdd.push_back(parcZU);
+        }
+
     }
     return parcToAdd;
 }
 
 template<typename T> void Carte<T>::addParcelle(parcelle<T> parc){
-    //ajouter la parcelle en parametre au vecteur de parcelle dans private
+    this->vectorParcelle.push_back(parc);
 }
 
 template<typename T> void Carte<T>::save(){
     // dans fichier texte
     // ne pas oublier le caractere espace qui est utilisé dans la segmentation
+    string str = "";
+    for(int i = 0; i < this->vectorParcelle.size(); i++){
+        //str << this->vectorParcelle[i] << endl;
+    }
 }
 
 template<typename T> void Carte<T>::afficher(){
-
-    // parcourir le vecteur de parcelle
+    for(int i = 0; i < this->vectorParcelle.size(); i++){
+        cout << this->vectorParcelle[i] << endl;
+    }
 }
 
 string cutStr(int a, int b, string stToCut){
@@ -172,5 +196,9 @@ int findFirstNumber(string texte){
 }
 
 point2D<int> findPoint(string texte){
-
+    // x et y a identifier dans la string
+    int x = 70;
+    int y = 98;
+    point2D<int> pt(x, y);
+    return pt;
 }

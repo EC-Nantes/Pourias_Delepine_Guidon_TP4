@@ -40,6 +40,7 @@ int main()
     Carte<int> carte;
     carte.loadCarte("Parcelles.txt");
     carte.afficher();
+    carte.save();
 
 
     return 0;
