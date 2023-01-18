@@ -24,3 +24,14 @@ template<typename T>
 ZA<T>::ZA(int num, string prop, Polygone<T> forme, string type_culture){
     this -> setType("ZA");
 }
+
+template<typename T>
+inline ostream& operator<<(ostream& s, ZA<T> z)
+{
+	s << "Parcelle n° : " << z.getNumero() << endl;
+  s << "Type : " << z.getType() << endl;
+  s << "Polygone : " << z.getForme() << endl;
+  s << "Proprietaire : " << z.getProprietaire() << endl;
+  s << "Surface : " << z.getSurface() << endl;
+	return s;
+}

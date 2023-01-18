@@ -31,3 +31,16 @@ template<typename T>
 int ZU<T>::surfaceConstructible(){
     return this -> getSurface - this -> surface_construite;
 }
+
+template<typename T>
+inline ostream& operator<<(ostream& s, ZU<T> z)
+{
+	s << "Parcelle n° : " << z.getNumero() << endl;
+  s << "Type : " << z.getType() << endl;
+  s << "Polygone : " << z.getForme() << endl;
+  s << "Proprietaire : " << z.getProprietaire() << endl;
+  s << "% constructible : " << z.getEspaceConstructible() << "%"<< endl;
+  s << "Surface construite : " << z.getSurfaceConstruite() << endl;
+  s << "Surface à construire restante : " << z.surfaceConstructible()  << endl;
+	return s;
+}
