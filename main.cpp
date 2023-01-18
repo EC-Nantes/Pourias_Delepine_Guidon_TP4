@@ -14,15 +14,19 @@ int main()
 
     vector<point2D<int>> v_point;
 
-    point2D<int> pt0 (1, 1);
-    point2D<int> pt1 (1, 3);
-    point2D<int> pt2 (3, 1);
-    point2D<int> pt3 (3, 3);
+    point2D<int> pt0 (0, 0);
+    point2D<int> pt1 (0, 1);
+    point2D<int> pt3 (1, 0);
+    point2D<int> pt2 (1, 1);
+    
+    
+    point2D<int> pt0_fin (0, 0);
 
     v_point.push_back(pt0); //sens trigonometrique pour la formule de surface
+    v_point.push_back(pt1);
     v_point.push_back(pt2);
     v_point.push_back(pt3);
-    v_point.push_back(pt1);
+    v_point.push_back(pt0_fin);
     
 
    
