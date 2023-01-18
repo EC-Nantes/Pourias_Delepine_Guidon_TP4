@@ -88,7 +88,7 @@ template<typename T> vector<parcelle<T>> Carte<T>::loadCarte(string carteToLoad)
     while(i < vecteurData.size()){
         cout << "type : " << vecteurData[i] << endl;
         i++;
-        cout << "surface : " << vecteurData[i] << endl;
+        cout << "surface : " << vecteurData[i] << endl; // a convertir en int ? peut etre laisser en string
         i++;
         cout << "nom : " << vecteurData[i] << endl;
         i++;
@@ -98,6 +98,14 @@ template<typename T> vector<parcelle<T>> Carte<T>::loadCarte(string carteToLoad)
         while(run){
             if(i < vecteurData.size()){
                 if(vecteurData[i][0] == '['){
+                    // CREATION DES POINTS
+                    // todo
+                    /*
+                    point2D<int> pt3 (3, 3);
+                    x et y a identifier dans la string
+                    peut etre utiliser la fonction findPoint
+                    v_point.push_back(pt0); 
+                    */
                     cout << "point : " << vecteurData[i] << endl;
                     i++;
                 }else{
@@ -109,32 +117,32 @@ template<typename T> vector<parcelle<T>> Carte<T>::loadCarte(string carteToLoad)
             
             
         }
-    }
-    
+        // CREATION DU POLYGONE A PARTIR DU VECTEUR AVEC LES POINTS
+        // todo
+        // Polygone<int> pol(v_point); 
 
-    /*
-        point2D<int> pt3 (3, 3);
 
-        v_point.push_back(pt0); //sens trigonometrique pour la formule de surface
-        v_point.push_back(pt2);
-        v_point.push_back(pt3);
-        v_point.push_back(pt1);
-        
-        Polygone<int> pol(v_point); 
-
-        cout << "Polygone : \n" << pol << endl;
-
-        parcelle<int> parcelle_1(1,"Par_A",pol);
-        */
+        // CREATION DES PARCELLES
+        // todo
+        // parcelle<int> parcelle_1(1,"Par_A",pol);
         //this->vectorParcelle.push_back();
+    }
     return parcToAdd;
 }
 
-template<typename T> void Carte<T>::addParcelle(parcelle<T> parc){}
+template<typename T> void Carte<T>::addParcelle(parcelle<T> parc){
+    //ajouter la parcelle en parametre au vecteur de parcelle dans private
+}
 
-template<typename T> void Carte<T>::save(){}
+template<typename T> void Carte<T>::save(){
+    // dans fichier texte
+    // ne pas oublier le caractere espace qui est utilisé dans la segmentation
+}
 
-template<typename T> void Carte<T>::afficher(){}
+template<typename T> void Carte<T>::afficher(){
+
+    // parcourir le vecteur de parcelle
+}
 
 string cutStr(int a, int b, string stToCut){
     string newStr = "";
