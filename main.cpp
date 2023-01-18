@@ -2,7 +2,7 @@
 #include <iostream>
 #include "point2d.h"
 #include "polygone.h"
-#include "parcelle.h"
+#include "constructible.h"
 
 
 using namespace std;
