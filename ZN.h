@@ -20,3 +20,15 @@ template<typename T>
 ZN<T>::ZN(int num, string prop, Polygone<T> forme){
     this -> setType("ZN");
 }
+
+template<typename T>
+inline ostream& operator<<(ostream& s, ZN<T> z)
+{
+	s << "Parcelle n° : " << z.getNumero() << endl;
+  s << "Type : " << z.getType() << endl;
+  s << "Polygone : " << z.getForme() << endl;
+  s << "Proprietaire : " << z.getProprietaire() << endl;
+  s << "Surface : " << z.getSurface() << endl;
+
+	return s;
+}

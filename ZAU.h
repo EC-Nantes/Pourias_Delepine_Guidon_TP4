@@ -27,3 +27,15 @@ template<typename T>
 int ZAU<T>::surfaceConstructible(){
     return this -> getSurface - this -> surface_construite;
 }
+
+template<typename T>
+inline ostream& operator<<(ostream& s, ZAU<T> z)
+{
+	s << "Parcelle n° : " << z.getNumero() << endl;
+  s << "Type : " << z.getType() << endl;
+  s << "Polygone : " << z.getForme() << endl;
+  s << "Proprietaire : " << z.getProprietaire() << endl;
+  s << "Surface : " << z.getSurface() << endl;
+  s << "Type Culture : " << z.getTypeCulture() << endl;
+	return s;
+}
