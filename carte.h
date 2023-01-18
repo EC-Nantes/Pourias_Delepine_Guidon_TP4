@@ -4,6 +4,10 @@
 #include <vector>
 #include "parcelle.h"
 #include "utilitaire.h"
+#include "ZN.h"
+#include "ZA.h"
+#include "ZAU.h"
+#include "ZU.h"
 using namespace std;
 
 
@@ -131,18 +135,20 @@ template<typename T> vector<parcelle<T>> Carte<T>::loadCarte(string carteToLoad)
 
         // CREATION DES PARCELLES
         //numero de parcelle a ajouter et adapter au création spécifique des classes filles
+        //TODO
+        //convert surface en int
         if(type == "ZA"){
-            //ZA<int> parcZA(surface, nom, pol, culture);
+            //ZA<int> parcZA(findFirstNumber(surface), nom, pol, culture);
             //parcToAdd.push_back(parcZA);
         }else if(type == "ZAU"){
-            //ZAU<int> parcZAU(surface, nom, pol, culture);
+            //ZAU<int> parcZAU(findFirstNumber(surface), nom, pol, culture);
             //parcToAdd.push_back(parcZAU);
         }else if(type == "ZU"){
-            //ZU<int> parcZU(surface, nom, pol, culture);
+            //ZU<int> parcZU(findFirstNumber(surface), nom, pol, culture);
             //parcToAdd.push_back(parcZU);
         }else if(type == "ZN"){
-            //ZN<int> parcZN(surface, nom, pol, culture);
-            //parcToAdd.push_back(parcZU);
+            //ZN<int> parcZN(findFirstNumber(surface), nom, pol, culture);
+            //parcToAdd.push_back(parcZN);
         }
 
     }
