@@ -2,7 +2,9 @@
 #include <iostream>
 #include "point2d.h"
 #include "polygone.h"
-#include "parcelle.h"
+#include "constructible.h"
+#include "ZU.h"
+#include "ZAU.h"
 
 
 using namespace std;
@@ -10,34 +12,37 @@ using namespace std;
 //int main(int argc, char const *argv[])
 int main()
 {
-    cout << "hello world"<< endl;
+    cout << "START CODE"<< endl;
 
     vector<point2D<int>> v_point;
 
-    point2D<int> pt0 (1, 1);
-    point2D<int> pt1 (1, 3);
-    point2D<int> pt2 (3, 1);
-    point2D<int> pt3 (3, 3);
+    point2D<int> pt0 (0, 0);
+    point2D<int> pt1 (0, 100);
+    point2D<int> pt3 (100, 0);
+    point2D<int> pt2 (100, 100);
+    
+    
+    point2D<int> pt0_fin (0, 0);
 
     v_point.push_back(pt0); //sens trigonometrique pour la formule de surface
+    v_point.push_back(pt1);
     v_point.push_back(pt2);
     v_point.push_back(pt3);
-    v_point.push_back(pt1);
-    
-
-   
-    
+    v_point.push_back(pt0_fin);
+  
     Polygone<int> pol(v_point); 
 
-    cout << "Polygone : \n" << pol << endl;
+   
 
-    parcelle<int> parcelle_1(1,"Par_A",pol);
+    ZAU<int> parcelle_ZU1(1,"Par_A",pol, 10);
 
-    cout << "Parcelle numero : " << parcelle_1.getNumero() << endl;
-    cout << "Parcelle forme : \n" << parcelle_1.getForme() << endl;
-    cout << "Parcelle proprietaire : " << parcelle_1.getProprietaire() << endl;
-    cout << "Parcelle surface : " << parcelle_1.getSurface() << endl;
-    cout << "Parcelle Type : " << parcelle_1.getType() << endl;
+  
+
+    cout<<parcelle_ZU1;
+  
+
+
+    /* FIN DU MAIN */
 
     return 0;
 }

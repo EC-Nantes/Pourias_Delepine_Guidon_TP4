@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 
 #include <iostream>
 #include <vector>
@@ -32,3 +32,5 @@ inline ostream& operator<<(ostream& s, ZN<T> z)
 
 	return s;
 }
+
+*/

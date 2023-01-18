@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 
 #include <iostream>
 #include <vector>
@@ -22,7 +22,7 @@ class ZA : virtual public ZN <T>
 
 template<typename T>
 ZA<T>::ZA(int num, string prop, Polygone<T> forme, string type_culture){
-    this -> setType("ZA");
+    this->setType("ZA");
 }
 
 template<typename T>
@@ -35,3 +35,5 @@ inline ostream& operator<<(ostream& s, ZA<T> z)
   s << "Surface : " << z.getSurface() << endl;
 	return s;
 }
+
+*/

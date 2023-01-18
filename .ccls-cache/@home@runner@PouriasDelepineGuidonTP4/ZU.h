@@ -8,28 +8,34 @@ using namespace std;
 
 
 template<typename T>
-class ZU : virtual public constructible <T>, virtual public parcelle <T>
+class ZU : virtual public parcelle <T>
+//virtual public constructible <T>
 {
   protected:
+  int pourcent_surface_constructible;
   int surface_construite;
 
   public:
-  ZU(int num, string prop, Polygone<T> forme, int surface_construite);
+  ZU(int num, string prop, Polygone<T> forme, int surface_construite, int pourcent_surface_constructible);
   int  surfaceConstructible();
-  int get_surface_construite() {return surface_construite;};
-
+  int getSurfaceConstruite() {return this->surface_construite;};
+  int getEspaceConstructible() {return this->pourcent_surface_constructible;};
 };
 
 
 template<typename T>
-ZU<T>::ZU(int num, string prop, Polygone<T> forme, int surface_construite){
+ZU<T>::ZU(int num, string prop, Polygone<T> forme, int surface_constr, int pourcent_surface) : parcelle<T>(num, prop, forme){
+    this->pourcent_surface_constructible=pourcent_surface;
+    this->surface_construite=surface_constr;
     this -> setType("ZU");
 }
 
 
 template<typename T>
 int ZU<T>::surfaceConstructible(){
-    return this -> getSurface - this -> surface_construite;
+    int surface_totale_constructible=this->getSurface()*this->pourcent_surface_constructible/100;
+    return (surface_totale_constructible - this->surface_construite);
+
 }
 
 template<typename T>
@@ -42,5 +48,6 @@ inline ostream& operator<<(ostream& s, ZU<T> z)
   s << "% constructible : " << z.getEspaceConstructible() << "%"<< endl;
   s << "Surface construite : " << z.getSurfaceConstruite() << endl;
   s << "Surface à construire restante : " << z.surfaceConstructible()  << endl;
+  s << "% Constructible :" << z.get_pourcent_surface_constructible() << endl;
 	return s;
 }
