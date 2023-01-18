@@ -10,7 +10,7 @@ using namespace std;
 //int main(int argc, char const *argv[])
 int main()
 {
-    cout << "hello world"<< endl;
+    cout << "START CODE"<< endl;
 
     vector<point2D<int>> v_point;
 
@@ -36,7 +36,7 @@ int main()
     cout << "Parcelle numero : " << parcelle_1.getNumero() << endl;
     cout << "Parcelle forme : \n" << parcelle_1.getForme() << endl;
     cout << "Parcelle proprietaire : " << parcelle_1.getProprietaire() << endl;
-    cout << "Parcelle surface : " << parcelle_1.getSurface() << endl;
+    cout << "Parcelle surface : " << parcelle_1.getSurface() << " m^2"<<endl;
     cout << "Parcelle Type : " << parcelle_1.getType() << endl;
 
     return 0;
