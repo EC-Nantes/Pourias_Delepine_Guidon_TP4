@@ -8,7 +8,7 @@ using namespace std;
 
 
 template<typename T>
-class ZAU : virtual public parcelle <T>
+class ZAU : virtual public parcelle <T>, virtual public constructible<T> 
 {
   protected:
   int pourcent_surface_constructible;
@@ -37,7 +37,7 @@ inline ostream& operator<<(ostream& s, ZAU<T> z)
 {
 	s << "Parcelle n° : " << z.getNumero() << endl;
   s << "Type : " << z.getType() << endl;
-  s << "Polygone : " << z.getForme() << endl;
+  s << "Polygone : " << z.getForme();
   s << "Proprietaire : " << z.getProprietaire() << endl;
   s << "Surface : " << z.getSurface() << endl;
   s << "% Constructible : " << z.get_pourcent_surface_constructible() << endl;

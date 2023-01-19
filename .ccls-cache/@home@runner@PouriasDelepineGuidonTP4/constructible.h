@@ -1,22 +1,20 @@
-#pragma once 
-
+#pragma once
 #include "parcelle.h"
 
 template <typename T>
-class constructible : virtual public parcelle<T>
+class constructible 
 {
-    private:
-    parcelle<T> p_interne;
-
     public:
-       
         virtual int surfaceConstructible(parcelle<T> p);
+        constructible();
 
 };
 
-
 template<typename T>
-int constructible<T>::surfaceConstructible(parcelle<T> p){
-    int size = 0;
-    return size;
+int constructible<T>::surfaceConstructible(parcelle<T> p) {
+  return 0;
+}
+template<typename T>
+constructible<T>::constructible(){
+    
 }

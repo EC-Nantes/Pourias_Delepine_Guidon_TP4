@@ -47,12 +47,12 @@ int main()
 
 
 
-    cout << za1 <<endl;
-    cout <<"PEUT CONSTRUIRE : " << valid_ZA << endl;
-    cout << zn1 <<endl;
+    //cout << za1 <<endl;
+    
+    //cout << zn1 <<endl;
     cout << zau1 <<endl;
     cout << zu1 <<endl;
-
+/*
     cout << "Parcelle numero : " << parcelle_1.getNumero() << endl;
     cout << "Parcelle forme : \n" << parcelle_1.getForme() << endl;
     cout << "Parcelle proprietaire : " << parcelle_1.getProprietaire() << endl;
@@ -64,7 +64,7 @@ int main()
     carte.loadCarte("Parcelles.txt");
     carte.afficher();
     carte.save();
-
+*/
 
     return 0;
 }
