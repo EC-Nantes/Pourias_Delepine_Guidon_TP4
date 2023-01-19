@@ -62,13 +62,28 @@ void Polygone<T>::addPoint(point2D<T> pt){
 
 }
 
+
+
+
+
+
+template<typename T>
+void Polygone<T>::translate(T x,T y){
+
+  for (int i=0;i<size(this->v_sommets);i++)
+    {
+      v_sommets[i].translate(x,y);
+    }
+}
+
+  /*
 template<typename T>
 void Polygone<T>::translate(T x,T y){
 
     for (point2D<T> v : this->v_sommets){
         v.translate(x,y);
     }
-}
+}*/
 
 template<typename T>
 inline ostream& operator<<(ostream& s, Polygone<T> p)

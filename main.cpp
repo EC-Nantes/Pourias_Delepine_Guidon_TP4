@@ -10,37 +10,34 @@
 
 using namespace std;
 
+//cout << "START CODE"<< endl;
 
 int main()
 {
-    cout << "START CODE"<< endl;
-    
-    vector<point2D<int>> v_point;
+  point2D<int> p1;
+  point2D<int> p3(8,8);
+  point2D<int> p2=p1;
+  cout<<"point initial p1 : "<<p1<<"point recopié p 2: "<<p2<<endl;
+
+  Polygone<int> poly1; 
+  poly1.addPoint(p3);
+  Polygone<int> poly2=poly1;
+  cout<<"poly initial poly1 : "<<poly1<<"poly recopié poly2 : "<<poly2;
+
+  poly1.translate(5,5);
+  cout<<"poly initial poly1 : "<<poly1<<"poly recopié poly2 : "<<poly2;
+
+
+  
+  
 /*
+
+    vector<point2D<int>> v_point;
     point2D<int> pt0 (0, 0);
     point2D<int> pt1 (0, 30);
     point2D<int> pt3 (30, 0);
     point2D<int> pt2 (30, 30);
-    */
     
-    point2D<int> p1;
-    point2D<int> p=p1;
-    cout<<p<<endl<<endl<<p1;
-
-
-    Polygone<int> poly; 
-    cout<<poly;
-
-    
-
-    poly.translate(5,5);
-
-  cout<<poly;
-    
-    Polygone<int> poly2=poly;
-    cout<<poly2;
-  
-/*
     v_point.push_back(pt0); //sens trigonometrique pour la formule de surface
     v_point.push_back(pt1);
     v_point.push_back(pt2);
