@@ -36,11 +36,17 @@ int main()
   parcelle<int> parc(8, "Mister M", pol);
   parcelle<int> parc2 = parc;
   
-  cout<<parc;
 
 
+  ZN<int> zn1(1,"propre ZN 1",pol);
+  ZA<int> za1(2,"propre ZA 1",pol,"cailloux");
+  ZAU<int> zau1(3,"propre ZAU 1",pol,10);
+  ZU<int> zu1(4,"propre ZU 1",pol,50,10);
 
-
+    cout << za1 <<endl;
+    cout << zn1 <<endl;
+    cout << zau1 <<endl;
+    cout << zu1 <<endl;
 
   
   /*

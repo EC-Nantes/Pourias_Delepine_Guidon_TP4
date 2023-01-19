@@ -24,7 +24,7 @@ template<typename T>
 ZAU<T>::ZAU(int num, string prop, Polygone<T> forme, int pourcent_surface) : parcelle<T>(num, prop, forme)
 {
     this->pourcent_surface_constructible=pourcent_surface;
-    this -> setType("ZAU");
+    this->type = "ZAU";
 }
 
 template<typename T>

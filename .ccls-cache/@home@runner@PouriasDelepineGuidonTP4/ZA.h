@@ -25,10 +25,8 @@ class ZA : virtual public constructible<T>, virtual public parcelle<T> //virtual
 template<typename T>
 ZA<T>::ZA(int num, string prop, Polygone<T> forme, string type_culture) : parcelle<T>(num, prop,forme)
 {
-  this->setType("ZA");
-  this->setProprietaire(prop);
-  this->setForme(forme);
   this->type_culture = type_culture;
+  this->type = "ZA";
 }
 
 template<typename T>
