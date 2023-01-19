@@ -10,21 +10,37 @@
 
 using namespace std;
 
-//int main(int argc, char const *argv[])
+
 int main()
 {
     cout << "START CODE"<< endl;
-    /*
+    
     vector<point2D<int>> v_point;
-
+/*
     point2D<int> pt0 (0, 0);
     point2D<int> pt1 (0, 30);
     point2D<int> pt3 (30, 0);
     point2D<int> pt2 (30, 30);
+    */
     
-    
-    point2D<int> pt0_fin (0, 0);
+    point2D<int> p1;
+    point2D<int> p=p1;
+    cout<<p<<endl<<endl<<p1;
 
+
+    Polygone<int> poly; 
+    cout<<poly;
+
+    
+
+    poly.translate(5,5);
+
+  cout<<poly;
+    
+    Polygone<int> poly2=poly;
+    cout<<poly2;
+  
+/*
     v_point.push_back(pt0); //sens trigonometrique pour la formule de surface
     v_point.push_back(pt1);
     v_point.push_back(pt2);
@@ -52,19 +68,19 @@ int main()
     //cout << zn1 <<endl;
     cout << zau1 <<endl;
     cout << zu1 <<endl;
-/*
+
     cout << "Parcelle numero : " << parcelle_1.getNumero() << endl;
     cout << "Parcelle forme : \n" << parcelle_1.getForme() << endl;
     cout << "Parcelle proprietaire : " << parcelle_1.getProprietaire() << endl;
     cout << "Parcelle surface : " << parcelle_1.getSurface() << " m^2"<<endl;
     cout << "Parcelle Type : " << parcelle_1.getType() << endl;
-*/
+
     cout << endl;
     Carte<int> carte;
     carte.loadCarte("Parcelles.txt");
     carte.afficher();
     carte.save();
-
+*/
 
     return 0;
 }

@@ -17,7 +17,7 @@ public:
   // constructeurs
   point2D();
   point2D(T x, T y);
-  //point2D (point2D<T> &p);
+  point2D (const point2D<T> &p);
   
 
   // accesseurs en lecture
@@ -48,6 +48,14 @@ point2D<T>::point2D(T x, T y) {
   this->x = x;
   this->y = y;
 }
+
+template <typename T> 
+point2D<T>::point2D(const point2D &p)
+    {
+      this->x = p.x;
+      this->y = p.y;
+    }
+
 /*
 template <typename T> 
 point2D<T>::point2D (point2D<T> &p)
