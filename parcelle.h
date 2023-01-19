@@ -15,9 +15,8 @@ class parcelle{
         int pConstructible;
 
     public:
-        //parcelle();
         parcelle(int num, string prop, Polygone<T> forme);
-        //parcelle(parcelle parc);
+        parcelle (const parcelle<T> &parc);
         int getNumero();
         string getProprietaire( );
         float getSurface( );
@@ -31,17 +30,21 @@ class parcelle{
 
 template<typename T>
 parcelle<T>::parcelle(int num, string prop, Polygone<T> forme){
-    this->setForme(forme);
-    this->setNumero(num);
-    this->setProprietaire(prop);
+    this->forme = forme;
+    this->proprietaire = prop;
+    this->numero = num;
+    this->surface = 0;
 }
-/*
-template<typename T>
-parcelle<T>::parcelle(){
-    this->setNumero(0);
-    this->setProprietaire("P1");
+
+template <typename T> 
+parcelle<T>::parcelle(const parcelle &parc)
+{
+    this->forme = parc.forme;
+    this->proprietaire = parc.proprietaire;
+    this->numero = parc.numero;
+    this->surface = 0;
 }
-*/
+
 template<typename T>
 int parcelle<T>::getNumero(){
     return this->numero;
@@ -63,9 +66,8 @@ float parcelle<T>::getSurface(){
     int y_plus_1 = 0;
 
     float result_somme = 0;
-    
-    
-    for (int i=0;i< this->forme.getSommets().size()-1;i++){
+
+    for (int i=0;i<(this->forme.getSommets().size());i++){
         x = this->forme.getSommets()[i].getX();
         y = this->forme.getSommets()[i].getY();
         x_plus_1 = this->forme.getSommets()[i+1].getX();
@@ -73,9 +75,9 @@ float parcelle<T>::getSurface(){
 
         result_somme += (x_plus_1*y - x*y_plus_1); 
     }
-    this->surface = 0.5*(result_somme);
+    return (0.5*(result_somme));
 
-    return this->surface;
+    
 }
 
 template<typename T>
@@ -113,7 +115,7 @@ inline ostream& operator<<(ostream& s, parcelle<T> p)
 {
 	s << "Parcelle n° : " << p.getNumero() << endl;
     s << "  Type : " << p.getType() << endl;
-    s << "  Polygone : " << p.getForme() << endl;
+    s << "  Polygone : " << p.getForme();
     s << "  Proprietaire : " << p.getProprietaire() << endl;
     s << "  Surface : " << p.getSurface() << endl;
     //constructible

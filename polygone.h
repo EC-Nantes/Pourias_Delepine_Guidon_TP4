@@ -8,7 +8,6 @@
 using namespace std;
 
 template<typename T>
-
 class Polygone {
 
     private:
@@ -23,7 +22,6 @@ class Polygone {
         void setSommets(vector<point2D<T>> listeSommets);
         void addPoint(point2D<T> pt);
         void translate(T x,T y);
-
 };
 
 template<typename T>
@@ -39,9 +37,9 @@ Polygone<T>::Polygone(vector<point2D<T>> listeSommets){
 
 template <typename T> 
 Polygone<T>::Polygone(const Polygone &p)
-    {
-      this->v_sommets=p.v_sommets;
-    }
+{
+    this->v_sommets=p.v_sommets;
+}
 
 
 template<typename T>
@@ -76,14 +74,6 @@ void Polygone<T>::translate(T x,T y){
     }
 }
 
-  /*
-template<typename T>
-void Polygone<T>::translate(T x,T y){
-
-    for (point2D<T> v : this->v_sommets){
-        v.translate(x,y);
-    }
-}*/
 
 template<typename T>
 inline ostream& operator<<(ostream& s, Polygone<T> p)

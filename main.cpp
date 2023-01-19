@@ -2,18 +2,48 @@
 #include <iostream>
 #include "point2d.h"
 #include "polygone.h"
+#include "parcelle.h"
 #include "ZN.h"
 #include "ZA.h"
 #include "ZAU.h"
 #include "ZU.h"
 #include "carte.h"
-
+#include <string>
 using namespace std;
 
 //cout << "START CODE"<< endl;
 
 int main()
 {
+    vector<point2D<int>> v_point;
+    point2D<int> pt0 (0, 0);
+    point2D<int> pt1 (0, 30);
+    point2D<int> pt3 (30, 0);
+    point2D<int> pt2 (30, 30);
+    
+    v_point.push_back(pt0);
+    v_point.push_back(pt1);
+    v_point.push_back(pt2);
+    v_point.push_back(pt3);
+    //v_point.push_back(pt0_fin);
+    
+    Polygone<int> pol(v_point);
+
+
+
+
+  
+  parcelle<int> parc(8, "Mister M", pol);
+  parcelle<int> parc2 = parc;
+  
+  cout<<parc;
+
+
+
+
+
+  
+  /*
   point2D<int> p1;
   point2D<int> p3(8,8);
   point2D<int> p2=p1;
@@ -22,7 +52,7 @@ int main()
   Polygone<int> poly1; 
   poly1.addPoint(p3);
   Polygone<int> poly2=poly1;
-  cout<<"poly initial poly1 : "<<poly1<<"poly recopié poly2 : "<<poly2;
+  cout<<"poly initial poly1 : "<<poly1<<"poly recopié poly2 : "<<poly2<<endl;
 
   poly1.translate(5,5);
   cout<<"poly initial poly1 : "<<poly1<<"poly recopié poly2 : "<<poly2;
@@ -30,7 +60,7 @@ int main()
 
   
   
-/*
+
 
     vector<point2D<int>> v_point;
     point2D<int> pt0 (0, 0);
