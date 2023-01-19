@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "polygone.h"
+
 using namespace std;
 
 template<typename T>
@@ -14,6 +15,7 @@ class parcelle{
         int pConstructible;
 
     public:
+        //parcelle();
         parcelle(int num, string prop, Polygone<T> forme);
         //parcelle(parcelle parc);
         int getNumero();
@@ -25,7 +27,6 @@ class parcelle{
         void setProprietaire(string prop );
         void setForme(Polygone<T> forme);
         void setType(string type);
-
 };
 
 template<typename T>
@@ -34,7 +35,13 @@ parcelle<T>::parcelle(int num, string prop, Polygone<T> forme){
     this->setNumero(num);
     this->setProprietaire(prop);
 }
-
+/*
+template<typename T>
+parcelle<T>::parcelle(){
+    this->setNumero(0);
+    this->setProprietaire("P1");
+}
+*/
 template<typename T>
 int parcelle<T>::getNumero(){
     return this->numero;
@@ -64,17 +71,7 @@ float parcelle<T>::getSurface(){
         x_plus_1 = this->forme.getSommets()[i+1].getX();
         y_plus_1 = this->forme.getSommets()[i+1].getY();
 
-        printf("\nx = %d\n",x);
-        printf("y = %d\n",y);
-        printf("x+1 = %d\n",x_plus_1);
-        printf("y+1 = %d\n",y_plus_1);
-
         result_somme += (x_plus_1*y - x*y_plus_1); 
-
-        printf("sum = %f\n",result_somme);
-
-
-        //printf(result_somme);
     }
     this->surface = 0.5*(result_somme);
 

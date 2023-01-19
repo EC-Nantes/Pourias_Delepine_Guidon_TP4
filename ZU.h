@@ -44,6 +44,7 @@ inline ostream& operator<<(ostream& s, ZU<T> z)
   s << "Type : " << z.getType() << endl;
   s << "Polygone : " << z.getForme();
   s << "Proprietaire : " << z.getProprietaire() << endl;
+  s << "Surface : " << z.getSurface() << endl;
   s << "Surface construite : " << z.getSurfaceConstruite() << endl;
   s << "Surface à construire restante : " << z.surfaceConstructible()  << endl;
   s << "% Constructible : " << z.get_pourcent_surface_constructible() << endl;

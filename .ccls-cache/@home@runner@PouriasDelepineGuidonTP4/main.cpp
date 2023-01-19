@@ -50,8 +50,8 @@ int main()
     //cout << za1 <<endl;
     
     //cout << zn1 <<endl;
-    //cout << zau1 <<endl;
-    //cout << zu1 <<endl;
+    cout << zau1 <<endl;
+    cout << zu1 <<endl;
 /*
     cout << "Parcelle numero : " << parcelle_1.getNumero() << endl;
     cout << "Parcelle forme : \n" << parcelle_1.getForme() << endl;
