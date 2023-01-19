@@ -58,13 +58,13 @@ int main()
     cout << "Parcelle proprietaire : " << parcelle_1.getProprietaire() << endl;
     cout << "Parcelle surface : " << parcelle_1.getSurface() << " m^2"<<endl;
     cout << "Parcelle Type : " << parcelle_1.getType() << endl;
-
+*/
     cout << endl;
     Carte<int> carte;
     carte.loadCarte("Parcelles.txt");
     carte.afficher();
     carte.save();
-*/
+
 
     return 0;
 }
