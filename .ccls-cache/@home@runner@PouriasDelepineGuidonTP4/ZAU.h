@@ -8,7 +8,7 @@ using namespace std;
 
 
 template<typename T>
-class ZAU : virtual public parcelle <T>
+class ZAU : virtual public parcelle <T> //HERITAGE CONSTRUCTIBLE
 {
   protected:
   int pourcent_surface_constructible;

@@ -34,7 +34,7 @@ int main()
 
    
 
-    ZU<int> parcelle_ZU1(1,"Par_A",pol, 10);
+    ZU<int> parcelle_ZU1(1,"Par_A",pol, 10, 10);
 
   
 
