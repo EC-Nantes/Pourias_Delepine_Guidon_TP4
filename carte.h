@@ -25,7 +25,7 @@ class Carte{
     public:
         Carte();
         Carte(string cheminCarte);
-        vector<parcelle<T>> loadCarte(string carteToLoad);
+        void loadCarte(string carteToLoad);
         void addParcelle(parcelle<T> parc);
         void save();
         void afficher();
@@ -34,13 +34,15 @@ class Carte{
 template<typename T> Carte<T>::Carte(){}
 
 template<typename T> Carte<T>::Carte(string cheminCarte){
+    cout << "Definition de la carte :" << endl;
     vector<parcelle<T>> parcToAdd = loadCarte(cheminCarte);
     for(int i = 0; i < parcToAdd.size(); i++){
+        cout << parcToAdd[i] << endl;
         this->vectorParcelle.push_back(parcToAdd[i]);
     }
 }
 
-template<typename T> vector<parcelle<T>> Carte<T>::loadCarte(string carteToLoad){
+template<typename T> void Carte<T>::loadCarte(string carteToLoad){
     vector<parcelle<T>> parcToAdd;
     string listeParcelle;
     //listeParcelle = "ZA 24 SAMSON Blé \n[-47;-158] [-72;-239] [0;-275] [25;-208] \nZA 101 ROUGE Tabac \n[0;125] [-38;146] [-60;115] [0;50]";
@@ -84,27 +86,46 @@ template<typename T> vector<parcelle<T>> Carte<T>::loadCarte(string carteToLoad)
 
     }
     
-    for(int i = 0; i < vecteurData.size(); i++){
-        cout << vecteurData[i] << endl;
-    }
-    
     i = 0;
     while(i < vecteurData.size()){
-        cout << "type : " << vecteurData[i] << endl;
+        //cout << "type : " << vecteurData[i] << endl;
         string type = vecteurData[i];
         i++;
 
-        cout << "surface : " << vecteurData[i] << endl; // a convertir en int ? peut etre laisser en string
-        string surface = vecteurData[i];
+        //cout << "numero : " << vecteurData[i] << endl; // a convertir en int ? peut etre laisser en string
+        string numero = vecteurData[i];
         i++;
 
-        cout << "nom : " << vecteurData[i] << endl;
+        //cout << "nom : " << vecteurData[i] << endl;
         string nom = vecteurData[i];
         i++;
 
-        cout << "culture : " << vecteurData[i] << endl;
-        string culture = vecteurData[i];
-        i++;
+        string culture = "";
+        string surfaceConstructible = "";
+        string surfaceConstruite = "";
+
+        if(type == "ZA"){
+            //cout << "culture : " << vecteurData[i] << endl;
+            culture = vecteurData[i];
+            i++;
+            
+        }else if(type == "ZAU"){
+            //cout << "surface constructible : " << vecteurData[i] << endl;
+            surfaceConstructible = vecteurData[i];
+            i++;
+            
+        }else if(type == "ZU"){
+            //cout << "surface constructible : " << vecteurData[i] << endl;
+            surfaceConstructible = vecteurData[i];
+            i++;
+
+            //cout << "surface construite : " << vecteurData[i] << endl;
+            surfaceConstruite = vecteurData[i];
+            i++;
+            
+        }else if(type == "ZN"){
+            
+        }
 
 
         bool run = true;
@@ -119,7 +140,7 @@ template<typename T> vector<parcelle<T>> Carte<T>::loadCarte(string carteToLoad)
                     
                     v_point.push_back(pt); 
                     
-                    cout << "point : " << vecteurData[i] << endl;
+                    //cout << "point : " << vecteurData[i] << endl;
                     i++;
                 }else{
                     run = false;
@@ -136,23 +157,21 @@ template<typename T> vector<parcelle<T>> Carte<T>::loadCarte(string carteToLoad)
         // CREATION DES PARCELLES
         //numero de parcelle a ajouter et adapter au création spécifique des classes filles
         //TODO
-        //convert surface en int
+        //convert numero en int
         if(type == "ZA"){
-            //ZA<int> parcZA(findFirstNumber(surface), nom, pol, culture);
-            //parcToAdd.push_back(parcZA);
+            ZA<int> parcZA(findFirstNumber(numero), nom, pol, culture);
+            this->vectorParcelle.push_back(parcZA);
         }else if(type == "ZAU"){
-            //ZAU<int> parcZAU(findFirstNumber(surface), nom, pol, culture);
-            //parcToAdd.push_back(parcZAU);
+            ZAU<int> parcZAU(findFirstNumber(numero), nom, pol, findFirstNumber(surfaceConstructible));
+            this->vectorParcelle.push_back(parcZAU);
         }else if(type == "ZU"){
-            //ZU<int> parcZU(findFirstNumber(surface), nom, pol, culture);
-            //parcToAdd.push_back(parcZU);
+            ZU<int> parcZU(findFirstNumber(numero), nom, pol, findFirstNumber(surfaceConstructible), findFirstNumber(surfaceConstruite));
+            this->vectorParcelle.push_back(parcZU);
         }else if(type == "ZN"){
-            //ZN<int> parcZN(findFirstNumber(surface), nom, pol, culture);
-            //parcToAdd.push_back(parcZN);
+            ZN<int> parcZN(findFirstNumber(numero), nom, pol);
+            this->vectorParcelle.push_back(parcZN);
         }
-
     }
-    return parcToAdd;
 }
 
 template<typename T> void Carte<T>::addParcelle(parcelle<T> parc){
@@ -169,9 +188,12 @@ template<typename T> void Carte<T>::save(){
 }
 
 template<typename T> void Carte<T>::afficher(){
+    //cout << "taille vecteur : " << this->vectorParcelle.size()<< endl;
     for(int i = 0; i < this->vectorParcelle.size(); i++){
+        //cout << "i = " << i<< endl;
         cout << this->vectorParcelle[i] << endl;
     }
+    
 }
 
 string cutStr(int a, int b, string stToCut){
@@ -184,6 +206,7 @@ string cutStr(int a, int b, string stToCut){
 
 int findFirstNumber(string texte){
     int number = 0;
+    /*
     int i = 0;
 
     while (not('0' <= texte[i] && texte[i] <= '9')){
@@ -197,7 +220,7 @@ int findFirstNumber(string texte){
         }
         i++;
     }
-
+    */
     return number;
 }
 

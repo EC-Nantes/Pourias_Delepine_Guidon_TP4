@@ -14,7 +14,7 @@ using namespace std;
 int main()
 {
     cout << "START CODE"<< endl;
-
+    /*
     vector<point2D<int>> v_point;
 
     point2D<int> pt0 (0, 0);
@@ -52,12 +52,12 @@ int main()
     cout << zn1 <<endl;
     cout << zau1 <<endl;
     cout << zu1 <<endl;
-
-    cout << "Parcelle numero : " << parcelle_1.getNumero() << endl;
-    cout << "Parcelle forme : \n" << parcelle_1.getForme() << endl;
-    cout << "Parcelle proprietaire : " << parcelle_1.getProprietaire() << endl;
-    cout << "Parcelle surface : " << parcelle_1.getSurface() << " m^2"<<endl;
-    cout << "Parcelle Type : " << parcelle_1.getType() << endl;
+    */
+    // cout << "Parcelle numero : " << parcelle_1.getNumero() << endl;
+    // cout << "Parcelle forme : \n" << parcelle_1.getForme() << endl;
+    // cout << "Parcelle proprietaire : " << parcelle_1.getProprietaire() << endl;
+    // cout << "Parcelle surface : " << parcelle_1.getSurface() << " m^2"<<endl;
+    // cout << "Parcelle Type : " << parcelle_1.getType() << endl;
 
     cout << endl;
     Carte<int> carte;
