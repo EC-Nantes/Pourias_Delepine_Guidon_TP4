@@ -15,6 +15,7 @@ int constructible<T>::surfaceConstructible(parcelle<T> p){
     int size = 0;
     return size;
 }
+
 template<typename T>
 constructible<T>::constructible(){
     
