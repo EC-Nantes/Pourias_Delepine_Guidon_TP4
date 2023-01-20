@@ -9,7 +9,7 @@ using namespace std;
 
 
 template<typename T>
-class ZA : virtual public constructible<T>, virtual public parcelle<T> //virtual public ZN <T>
+class ZA : virtual public constructible<T>, virtual public parcelle<T> 
 {
   protected:
   string type_culture;

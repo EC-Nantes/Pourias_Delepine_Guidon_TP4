@@ -58,9 +58,7 @@ string parcelle<T>::getProprietaire( ){
 
 template<typename T>
 float parcelle<T>::getSurface(){
-
     vector<point2D<int>>::iterator it;
-
     int x = 0;
     int y = 0;
     int x_plus_1 = 0;

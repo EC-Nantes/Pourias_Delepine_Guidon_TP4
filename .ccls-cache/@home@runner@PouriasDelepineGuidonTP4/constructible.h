@@ -5,11 +5,11 @@ template <typename T>
 class constructible 
 {
     public:
-        virtual int surfaceConstructible(parcelle<T> p);
+        virtual int surfaceConstructible();
 };
 
 template<typename T>
-int constructible<T>::surfaceConstructible(parcelle<T> p) {
+int constructible<T>::surfaceConstructible() {
   return 0;
 }
 
