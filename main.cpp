@@ -43,10 +43,11 @@ int main()
   ZAU<int> zau1(3,"propre ZAU 1",pol,10);
   ZU<int> zu1(4,"propre ZU 1",pol,50,10);
 
+  //cout<<za1.getType();
     cout << za1 <<endl;
-    cout << zn1 <<endl;
+    /*cout << zn1 <<endl;
     cout << zau1 <<endl;
-    cout << zu1 <<endl;
+    cout << zu1 <<endl;*/
 
   
   /*

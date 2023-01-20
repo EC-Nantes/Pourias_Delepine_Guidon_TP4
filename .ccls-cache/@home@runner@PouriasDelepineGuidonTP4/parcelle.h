@@ -67,7 +67,7 @@ float parcelle<T>::getSurface(){
 
     float result_somme = 0;
 
-    for (int i=0;i<(this->forme.getSommets().size()-2);i++){
+    for (int i=0;i<(this->forme.getSommets().size()-1);i++){
         x = this->forme.getSommets()[i].getX();
         y = this->forme.getSommets()[i].getY();
         x_plus_1 = this->forme.getSommets()[i+1].getX();
