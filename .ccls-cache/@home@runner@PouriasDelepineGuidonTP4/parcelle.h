@@ -43,6 +43,7 @@ parcelle<T>::parcelle(const parcelle &parc)
     this->proprietaire = parc.proprietaire;
     this->numero = parc.numero;
     this->surface = getSurface();
+    this->type = parc.type;
 }
 
 template<typename T>
