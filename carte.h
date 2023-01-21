@@ -142,8 +142,9 @@ template<typename T> void Carte<T>::loadCarte(string carteToLoad){
 
         bool run = true;
         vector<point2D<int>> v_point;
-        ZA<int> parcZA;
         Polygone<int> pol;
+        ZA<int> parcZA;
+        
         while(run){
             if(i < vecteurData.size()){
                 if(vecteurData[i][0] == '['){
@@ -162,6 +163,7 @@ template<typename T> void Carte<T>::loadCarte(string carteToLoad){
             
             
         }
+        
         // CREATION DU POLYGONE A PARTIR DU VECTEUR AVEC LES POINTS
         pol.setSommets(v_point); 
         //cout << pol << endl;
@@ -173,7 +175,7 @@ template<typename T> void Carte<T>::loadCarte(string carteToLoad){
 
             parcZA.setNumero(findFirstNumber(numero));
             parcZA.setProprietaire(nom);
-            //parcZA.setForme(pol); // erreur de segmentation
+            parcZA.setForme(pol); // erreur de segmentation
             parcZA.setTypeCulture(culture);
             this->vectorParcelle.push_back(parcZA);
         }
