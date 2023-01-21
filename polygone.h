@@ -22,6 +22,7 @@ class Polygone {
         void setSommets(vector<point2D<T>> listeSommets);
         void addPoint(point2D<T> pt);
         void translate(T x,T y);
+        void deleteSommets();
 };
 
 template<typename T>
@@ -48,6 +49,12 @@ vector<point2D<T>> Polygone<T>::getSommets(){
     return this->v_sommets;
 }
 
+template<typename T>
+void Polygone<T>::deleteSommets(){
+    for (int i = 0; i < this->v_sommets.size()-1;i++){
+        this->v_sommets.erase(this->v_sommets.end() - 1);
+    }
+}
 
 template<typename T>
 void Polygone<T>::setSommets(vector<point2D<T>> listeSommets){

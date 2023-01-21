@@ -171,13 +171,13 @@ template<typename T> void Carte<T>::loadCarte(string carteToLoad){
             //ZA<int> parcZA(findFirstNumber(numero), nom, pol, culture);
             //this->vectorParcelle.push_back(parcZA);
 
+            
             parcZA.setNumero(findFirstNumber(numero));
             parcZA.setProprietaire(nom);
-            //parcZA.setForme(pol); // erreur de segmentation
+            parcZA.setForme(pol); // erreur de segmentation
             parcZA.setTypeCulture(culture);
             this->vectorParcelle.push_back(parcZA);
-        }
-        /*else if(type == "ZAU"){
+        }else if(type == "ZAU"){
             ZAU<int> parcZAU(findFirstNumber(numero), nom, pol, findFirstNumber(surfaceConstructible));
             this->vectorParcelle.push_back(parcZAU);
         }else if(type == "ZU"){
@@ -186,7 +186,7 @@ template<typename T> void Carte<T>::loadCarte(string carteToLoad){
         }else if(type == "ZN"){
             ZN<int> parcZN(findFirstNumber(numero), nom, pol);
             this->vectorParcelle.push_back(parcZN);
-        }*/
+        }
         
     }
     

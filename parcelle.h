@@ -105,8 +105,15 @@ void parcelle<T>::setProprietaire(string prop ){
 
 template<typename T>
 void parcelle<T>::setForme(Polygone<T> poly){
-    cout << poly << endl; 
-    this->forme = poly;
+    //cout << poly << endl; 
+
+    this->forme.deleteSommets();
+
+    for(int i = 0; i < poly.getSommets().size(); i++){
+        this->forme.addPoint(poly.getSommets()[i]);
+    }
+    
+    //this->forme = poly;
     this->surface = getSurface();
 }
 
