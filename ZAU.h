@@ -29,7 +29,7 @@ ZAU<T>::ZAU(int num, string prop, Polygone<T> forme, int pourcent_surface) : par
 
 template<typename T>
 int ZAU<T>::surfaceConstructible(){
-    return (this->getSurface*this->pourcent_surface_constructible);
+    return (this->pourcent_surface_constructible);
 }
 
 template<typename T>

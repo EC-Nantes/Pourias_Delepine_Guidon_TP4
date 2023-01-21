@@ -47,33 +47,44 @@ template<typename T> void Carte<T>::loadCarte(string carteToLoad){
     string listeParcelle;
     //listeParcelle = "ZA 24 SAMSON Blé \n[-47;-158] [-72;-239] [0;-275] [25;-208] \nZA 101 ROUGE Tabac \n[0;125] [-38;146] [-60;115] [0;50]";
     readFileIntoString(carteToLoad, listeParcelle);
+    cout << "Fichier chargé" << endl;
     //cout << "Carte : " << endl << listeParcelle << endl;
 
     vector<string> vecteurData;
+    cout << listeParcelle.length()-1 << endl;
 
     int i = 0;
     while(i < listeParcelle.length()-1){
         // Caractere brut
-        //cout << "Index : " << i << " -> ";
+        //cout << "Index : " << i << "->";
         if(listeParcelle[i] == '\n'){
             i++;
         }
 
         // TYPE DE PARCELLE
         int j = i;
-        while(listeParcelle[j]!=' ')
+        bool run2 = true;
+        while(run2)
         {
             j++;
+            if(listeParcelle[j]==' '){
+                run2 = false;
+                //cout << j << " ";
+            }
+            if(j>=listeParcelle.length()){
+                j = listeParcelle.length()-1;
+                run2 = false;
+            }
+            
         }
-        if(j>listeParcelle.length()){
-            j = listeParcelle.length();
-        }
+        
         string token = cutStr(i, j, listeParcelle);
         if(token != "\n"){
             vecteurData.push_back(token);
         }
         i=j;
-        //cout << " type : " << token;
+        
+        //cout << " token : " << token << endl;
         i++;
 
         if(listeParcelle[i] == '\n'){
@@ -83,12 +94,14 @@ template<typename T> void Carte<T>::loadCarte(string carteToLoad){
         if(listeParcelle[i] == '\r'){
             i++;
         }
-
+        
     }
+    
     
     i = 0;
     while(i < vecteurData.size()){
-        //cout << "type : " << vecteurData[i] << endl;
+        cout << "Index : " << i << "->";
+        cout << "token : " << vecteurData[i] << endl;
         string type = vecteurData[i];
         i++;
 
@@ -127,15 +140,13 @@ template<typename T> void Carte<T>::loadCarte(string carteToLoad){
             
         }
 
-
         bool run = true;
         vector<point2D<int>> v_point;
+        ZA<int> parcZA;
+        Polygone<int> pol;
         while(run){
             if(i < vecteurData.size()){
                 if(vecteurData[i][0] == '['){
-                    // CREATION DES POINTS
-                    // todo
-                    
                     point2D<int> pt = findPoint(vecteurData[i]);
                     
                     v_point.push_back(pt); 
@@ -152,16 +163,21 @@ template<typename T> void Carte<T>::loadCarte(string carteToLoad){
             
         }
         // CREATION DU POLYGONE A PARTIR DU VECTEUR AVEC LES POINTS
-        Polygone<int> pol(v_point); 
-
-        // CREATION DES PARCELLES
-        //numero de parcelle a ajouter et adapter au création spécifique des classes filles
-        //TODO
-        //convert numero en int
+        pol.setSommets(v_point); 
+        //cout << pol << endl;
+        
+        // CREATION DES PARCELLES 
         if(type == "ZA"){
-            ZA<int> parcZA(findFirstNumber(numero), nom, pol, culture);
+            //ZA<int> parcZA(findFirstNumber(numero), nom, pol, culture);
+            //this->vectorParcelle.push_back(parcZA);
+
+            parcZA.setNumero(findFirstNumber(numero));
+            parcZA.setProprietaire(nom);
+            //parcZA.setForme(pol);
+            parcZA.setTypeCulture(culture);
             this->vectorParcelle.push_back(parcZA);
-        }else if(type == "ZAU"){
+        }
+        /*else if(type == "ZAU"){
             ZAU<int> parcZAU(findFirstNumber(numero), nom, pol, findFirstNumber(surfaceConstructible));
             this->vectorParcelle.push_back(parcZAU);
         }else if(type == "ZU"){
@@ -170,8 +186,10 @@ template<typename T> void Carte<T>::loadCarte(string carteToLoad){
         }else if(type == "ZN"){
             ZN<int> parcZN(findFirstNumber(numero), nom, pol);
             this->vectorParcelle.push_back(parcZN);
-        }
+        }*/
+        
     }
+    
 }
 
 template<typename T> void Carte<T>::addParcelle(parcelle<T> parc){
@@ -206,21 +224,22 @@ string cutStr(int a, int b, string stToCut){
 
 int findFirstNumber(string texte){
     int number = 0;
-    /*
+    
     int i = 0;
-
+    /*
     while (not('0' <= texte[i] && texte[i] <= '9')){
         i++;
     }
-
+    */
     while (i < texte.length())
     {
         if(('0' <= texte[i] && texte[i] <= '9')){
-            number = number * 10 + texte[i]-54;
+            number = number * 10 + texte[i]-48;
+            //cout << "Raw " << texte[i] << " cvt " << number << endl;
         }
         i++;
     }
-    */
+    
     return number;
 }
 
@@ -228,6 +247,46 @@ point2D<int> findPoint(string texte){
     // x et y a identifier dans la string
     int x = 70;
     int y = 98;
+
+    //cout << texte << " -> ";
+    
+    //string token = cutStr(i, j, listeParcelle);
+    //findFirstNumber(string);
+
+    // identification de [
+    if(texte[0] == '['){
+
+        // identification de ;
+        int i = 2;
+        while(texte[i]!=';'){
+            i++;
+        }
+
+        x = findFirstNumber(cutStr(1, i, texte));
+        
+        if(texte[1]=='-'){
+            //nombre negatif
+            x = -x;
+        }
+
+        y = findFirstNumber(cutStr(i+1, texte.length(), texte));
+
+        // identification de - ou rien
+
+        if(texte[i+1]=='-'){
+            //nombre negatif
+            y = -y;
+        }
+
+        // identification de ]
+        if(texte[texte.length()-1]!=']'){
+            cout << "il semble y avoir une erreur";
+        }
+        
+    }
+
+    //cout << "x " << x << " y " << y << endl;
+
     point2D<int> pt(x, y);
     return pt;
 }

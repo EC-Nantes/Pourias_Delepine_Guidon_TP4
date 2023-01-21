@@ -6,6 +6,7 @@
 #include "ZA.h"
 #include "ZAU.h"
 #include "ZU.h"
+#include "carte.h"
 
 using namespace std;
 
@@ -58,6 +59,14 @@ int main()
     cout << "Parcelle surface : " << parcelle_1.getSurface() << " m^2"<<endl;
     cout << "Parcelle Type : " << parcelle_1.getType() << endl;
 */
+
+    
+    cout << "Implémentation carte :" <<endl;
+    Carte<int> carte;
+    carte.loadCarte("Parcelles.txt");
+    //carte.afficher();
+    carte.save();
+
     /* FIN DU MAIN */
 
     return 0;

@@ -15,12 +15,24 @@ class ZA : virtual public constructible<T>, virtual public parcelle<T>
   string type_culture;
 
   public:
+    ZA();
     ZA(int num, string prop, Polygone<T> forme, string type_culture);
     string getTypeCulture() {return this->type_culture;};
+    void setTypeCulture(string culture);
 
 
     bool surface_peut_constuctible_mais_pas_trop(int surface_veut_construire);
 };
+
+
+template<typename T> void ZA<T>:: setTypeCulture(string culture){
+  this->type_culture = culture;
+}
+
+template<typename T>
+ZA<T>::ZA() : parcelle<T>()
+{
+}
 
 template<typename T>
 ZA<T>::ZA(int num, string prop, Polygone<T> forme, string type_culture) : parcelle<T>(num, prop,forme)

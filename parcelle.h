@@ -15,6 +15,7 @@ class parcelle{
         int pConstructible;
 
     public:
+        parcelle();
         parcelle(int num, string prop, Polygone<T> forme);
         parcelle (const parcelle<T> &parc);
         int getNumero();
@@ -29,12 +30,17 @@ class parcelle{
 };
 
 template<typename T>
+parcelle<T>::parcelle(){
+}
+
+template<typename T>
 parcelle<T>::parcelle(int num, string prop, Polygone<T> forme){
     this->forme = forme;
     this->proprietaire = prop;
     this->numero = num;
     this->surface = getSurface();
 }
+
 
 template <typename T> 
 parcelle<T>::parcelle(const parcelle &parc)
@@ -98,8 +104,9 @@ void parcelle<T>::setProprietaire(string prop ){
 }
 
 template<typename T>
-void parcelle<T>::setForme(Polygone<T> forme){
-    this->forme = forme;
+void parcelle<T>::setForme(Polygone<T> poly){
+    cout << poly << endl; 
+    this->forme = poly;
     this->surface = getSurface();
 }
 
