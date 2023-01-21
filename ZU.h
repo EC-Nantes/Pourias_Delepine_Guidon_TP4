@@ -11,16 +11,15 @@ template<typename T>
 class ZU : virtual public parcelle <T>, virtual public constructible<T> 
 {
   protected:
-  int pourcent_surface_constructible;
-  int surface_construite;
+    int pourcent_surface_constructible;
+    int surface_construite;
 
   public:
-  ZU(int num, string prop, Polygone<T> forme, int pourcent_surface_constructible, int surface_construite);
-  int  surfaceConstructible();
-  int getSurfaceConstruite() {return this->surface_construite;};
-  int get_pourcent_surface_constructible() {return this->pourcent_surface_constructible;};
+    ZU(int num, string prop, Polygone<T> forme, int pourcent_surface_constructible, int surface_construite);
+    int  surfaceConstructible();
+    int getSurfaceConstruite() {return this->surface_construite;};
+    int get_pourcent_surface_constructible() {return this->pourcent_surface_constructible;};
 };
-
 
 template<typename T>
 ZU<T>::ZU(int num, string prop, Polygone<T> forme, int surface_constr, int pourcent_surface) : parcelle<T>(num, prop, forme){

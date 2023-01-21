@@ -15,6 +15,7 @@ using namespace std;
 string cutStr(int a, int b, string stToCut);
 int findFirstNumber(string texte);
 point2D<int> findPoint(string texte);
+string tostring(int nombre);
 
 
 template<typename T>
@@ -203,14 +204,16 @@ template<typename T> void Carte<T>::save(string chemin){
     // ne pas oublier le caractere espace qui est utilisé dans la segmentation
     string data = "";
     for(int i = 0; i < this->vectorParcelle.size(); i++){
-        data += (this->vectorParcelle[i]).getType( );
+        data += (this->vectorParcelle[i]).getType();
         data += ' ';
-        data += (this->vectorParcelle[i]).getNumero( );
+        data += tostring((this->vectorParcelle[i]).getNumero( ));
         data += ' ';
         data += (this->vectorParcelle[i]).getProprietaire( );
         data += ' ';
-        // si ZA //data += (this->vectorParcelle[i]).getTypeCulture( );
-        // data += ' ';
+        if((this->vectorParcelle[i]).getType() == "ZA"){
+            //data += (this->vectorParcelle[i]).getTypeCulture( ); // NE FONCTIONNE PAS
+            //data += ' ';
+        }
 
         data += '\n';
 
@@ -218,15 +221,29 @@ template<typename T> void Carte<T>::save(string chemin){
         vector<point2D<T>> points = (this->vectorParcelle[i]).getForme().getSommets();
         for(int i = 0; i < points.size(); i++){
             data += '[';
-            data += points[i].getX();
+            data += tostring(points[i].getX());
             data += ';';
-            data += points[i].getY();
+            data += tostring(points[i].getY());
             data += ']';
             data += ' ';
         }
         data += '\n';
+    }
 
+    /*
+    for(int i = 0; i < this->vectorParcelle.size(); i++){
+        data += this->vectorParcelle[i].getData();
+    }
+    */
 
+    FILE* fichier = NULL;
+    fichier = fopen("sauvegarde.txt", "w");
+    if (fichier != NULL)
+    {
+        for(int i =0; i < data.size(); i++){
+            fputc(data[i], fichier); 
+        }
+        fclose(fichier);
     }
 
     cout << data << endl;
@@ -313,4 +330,26 @@ point2D<int> findPoint(string texte){
 
     point2D<int> pt(x, y);
     return pt;
+}
+
+string tostring(int nombre){
+    string str;
+    string tampon;
+    if(nombre == 0){
+        str ='0';
+        
+    }else{
+        if(nombre < 0){
+            str += '-';
+            nombre = -nombre;
+        }
+        while(nombre > 0){
+            tampon += (nombre % 10) + '0';
+            nombre = (nombre - nombre % 10) / 10;
+        }
+    }
+    for(int i = 0; i <= tampon.size(); i++){
+        str += tampon[tampon.size()-i];
+    }
+    return str;
 }

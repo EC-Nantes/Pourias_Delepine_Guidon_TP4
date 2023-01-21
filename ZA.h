@@ -9,7 +9,7 @@ using namespace std;
 
 
 template<typename T>
-class ZA : virtual public constructible<T>, virtual public parcelle<T> 
+class ZA : virtual public constructible<T>, public parcelle<T> 
 {
   protected:
   string type_culture;
@@ -23,14 +23,13 @@ class ZA : virtual public constructible<T>, virtual public parcelle<T>
     bool surface_peut_constuctible_mais_pas_trop(int surface_veut_construire);
 };
 
-
 template<typename T> void ZA<T>:: setTypeCulture(string culture){
   this->type_culture = culture;
 }
 
-template<typename T>
-ZA<T>::ZA() : parcelle<T>()
+template<typename T> ZA<T>::ZA() : parcelle<T>()
 {
+  this->type = "ZA";
 }
 
 template<typename T>

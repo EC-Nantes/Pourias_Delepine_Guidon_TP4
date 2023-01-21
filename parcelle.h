@@ -18,16 +18,20 @@ class parcelle{
         parcelle();
         parcelle(int num, string prop, Polygone<T> forme);
         parcelle (const parcelle<T> &parc);
+
         int getNumero();
         string getProprietaire( );
         float getSurface( );
         Polygone<T> getForme( );
         string getType( ); 
+
+
         void setNumero(int n);
         void setProprietaire(string prop );
         void setForme(Polygone<T> forme);
         void setType(string type);
 };
+
 
 template<typename T>
 parcelle<T>::parcelle(){

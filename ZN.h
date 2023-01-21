@@ -16,6 +16,7 @@ class ZN : virtual public constructible<T>, virtual public parcelle<T>
   ZN(int num, string prop, Polygone<T> forme);
 };
 
+
 template<typename T>
 ZN<T>::ZN(int num, string prop, Polygone<T> forme): parcelle<T>(num, prop,forme){
   this->type = "ZN";
