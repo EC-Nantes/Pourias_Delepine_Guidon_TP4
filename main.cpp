@@ -65,7 +65,7 @@ int main()
     Carte<int> carte;
     carte.loadCarte("Parcelles.txt");
     carte.afficher();
-    carte.save();
+    carte.save("sauvegarde.txt");
 
     /* FIN DU MAIN */
 
