@@ -64,7 +64,7 @@ int main()
     cout << "Implémentation carte :" <<endl;
     Carte<int> carte;
     carte.loadCarte("Parcelles.txt");
-    //carte.afficher();
+    carte.afficher();
     carte.save();
 
     /* FIN DU MAIN */
