@@ -23,7 +23,6 @@ class parcelle{
         float getSurface( );
         Polygone<T> getForme( );
         string getType( ); 
-        virtual string getData();
         void setNumero(int n);
         void setProprietaire(string prop );
         void setForme(Polygone<T> forme);

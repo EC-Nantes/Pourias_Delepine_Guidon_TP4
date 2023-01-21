@@ -203,7 +203,30 @@ template<typename T> void Carte<T>::save(string chemin){
     // ne pas oublier le caractere espace qui est utilisé dans la segmentation
     string data = "";
     for(int i = 0; i < this->vectorParcelle.size(); i++){
-        data += (this->vectorParcelle[i]);
+        data += (this->vectorParcelle[i]).getType( );
+        data += ' ';
+        data += (this->vectorParcelle[i]).getNumero( );
+        data += ' ';
+        data += (this->vectorParcelle[i]).getProprietaire( );
+        data += ' ';
+        // si ZA //data += (this->vectorParcelle[i]).getTypeCulture( );
+        // data += ' ';
+
+        data += '\n';
+
+        
+        vector<point2D<T>> points = (this->vectorParcelle[i]).getForme().getSommets();
+        for(int i = 0; i < points.size(); i++){
+            data += '[';
+            data += points[i].getX();
+            data += ';';
+            data += points[i].getY();
+            data += ']';
+            data += ' ';
+        }
+        data += '\n';
+
+
     }
 
     cout << data << endl;
