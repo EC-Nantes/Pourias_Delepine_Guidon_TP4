@@ -173,7 +173,7 @@ template<typename T> void Carte<T>::loadCarte(string carteToLoad){
 
             parcZA.setNumero(findFirstNumber(numero));
             parcZA.setProprietaire(nom);
-            //parcZA.setForme(pol);
+            //parcZA.setForme(pol); // erreur de segmentation
             parcZA.setTypeCulture(culture);
             this->vectorParcelle.push_back(parcZA);
         }
