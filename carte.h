@@ -27,7 +27,7 @@ class Carte{
         Carte(string cheminCarte);
         void loadCarte(string carteToLoad);
         void addParcelle(parcelle<T> parc);
-        void save();
+        void save(string chemin);
         void afficher();
 };
 
@@ -100,8 +100,8 @@ template<typename T> void Carte<T>::loadCarte(string carteToLoad){
     
     i = 0;
     while(i < vecteurData.size()){
-        cout << "Index : " << i << "->";
-        cout << "token : " << vecteurData[i] << endl;
+        //cout << "Index : " << i << "->";
+        //cout << "token : " << vecteurData[i] << endl;
         string type = vecteurData[i];
         i++;
 
@@ -173,7 +173,7 @@ template<typename T> void Carte<T>::loadCarte(string carteToLoad){
             //ZA<int> parcZA(findFirstNumber(numero), nom, pol, culture);
             //this->vectorParcelle.push_back(parcZA);
 
-            
+            /**/
             parcZA.setNumero(findFirstNumber(numero));
             parcZA.setProprietaire(nom);
             parcZA.setForme(pol); // erreur de segmentation
@@ -198,22 +198,21 @@ template<typename T> void Carte<T>::addParcelle(parcelle<T> parc){
     this->vectorParcelle.push_back(parc);
 }
 
-template<typename T> void Carte<T>::save(){
+template<typename T> void Carte<T>::save(string chemin){
     // dans fichier texte
     // ne pas oublier le caractere espace qui est utilisé dans la segmentation
-    string str = "";
+    string data = "";
     for(int i = 0; i < this->vectorParcelle.size(); i++){
-        //str << this->vectorParcelle[i] << endl;
+        data += (this->vectorParcelle[i]);
     }
+
+    cout << data << endl;
 }
 
 template<typename T> void Carte<T>::afficher(){
-    //cout << "taille vecteur : " << this->vectorParcelle.size()<< endl;
     for(int i = 0; i < this->vectorParcelle.size(); i++){
-        //cout << "i = " << i<< endl;
         cout << this->vectorParcelle[i] << endl;
     }
-    
 }
 
 string cutStr(int a, int b, string stToCut){
